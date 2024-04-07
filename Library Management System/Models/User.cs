@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library_Management_System.NewFolder
+namespace Library_Management_System.Models
 {
     public abstract class User
     {
@@ -15,6 +15,7 @@ namespace Library_Management_System.NewFolder
         public string LastName { get; set; }
         public string Email { get; set; }
         public DateOnly DOB { get; set; }
+        public float Balance { get; set; }
 
         public User(string phoneNumber, string firstName, string lastName, string email, DateOnly dOB)
         {
@@ -24,6 +25,7 @@ namespace Library_Management_System.NewFolder
             LastName = lastName;
             Email = email;
             DOB = dOB;
+            Balance = 0;
         }
 
         public override string ToString()
