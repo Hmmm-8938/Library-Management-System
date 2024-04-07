@@ -4,6 +4,11 @@ public partial class Catalogue : ContentPage
 {
 	public Catalogue()
 	{
-		InitializeComponent();
+        InitializeComponent();
 	}
+
+    private void searchBooksButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
