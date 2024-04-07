@@ -41,6 +41,7 @@
             />
             </Grid>
             <VerticalStackLayout>
+                <Entry Placeholder="Search our Catalogue..." x:Name="searchBooks" Margin="10 0 0 0" />
                 <Label
                     Text="Recently Reviewed Books"
                     Margin="30,25, 0, 0"
