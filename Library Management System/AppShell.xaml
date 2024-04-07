@@ -5,16 +5,45 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Library_Management_System"
     Shell.FlyoutBehavior="{OnIdiom Default=Flyout}"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False"
+    Shell.FlyoutWidth="200"
     Title="Library_Management_System">
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Image
+                    Source="{Binding FlyoutIcon}"
+                    Margin="20"
+                    HeightRequest="150"
+                ></Image>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 
     <ShellContent
         Title="Catalogue"
         ContentTemplate="{DataTemplate local:Catalogue}"
-        Route="Catalogue" />
+        Route="Catalogue" 
+        Icon="catalogue_icon.png"
+        />
 
     <ShellContent
         Title="CatalogueSearchResults"
         ContentTemplate="{DataTemplate local:CatalogueSearchResults}"
-        Route="CatalogueSearchResults" />
+        Route="CatalogueSearchResults"
+        FlyoutItem.IsVisible="False"/>
 
+    <ShellContent
+        Title="CreateLibraryCard"
+        ContentTemplate="{DataTemplate local:CreateLibraryCard}"
+        Route="CreateLibraryCard"
+        Icon="create_library_card_icon.png"/>
+
+    <ShellContent
+        Title="CheckInOutBooks"
+        ContentTemplate="{DataTemplate local:CheckInOutBooks}"
+        Route="CheckInOutBooks"
+        Icon="checkin_checkout_books_icon.png"/>
 </Shell>
