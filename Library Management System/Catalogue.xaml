@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Library_Management_System.Catalogue"
              Title="Catalogue" >
-    <ScrollView Orientation="Both">
+    <ScrollView Orientation="Vertical"> <!--We can fix this later, but it wasn't allowing overflow scroll, but kept expanding the screen aka login button as well -->
         <StackLayout VerticalOptions="StartAndExpand">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -41,7 +41,11 @@
             />
             </Grid>
             <VerticalStackLayout>
-                <Entry Placeholder="Search our Catalogue..." x:Name="searchBooks" Margin="10 0 0 0" />
+                <Grid RowDefinitions="*" Grid.ColumnDefinitions="5*,*" Margin="10">
+                    <Entry x:Name="searchBooks" Grid.Row="0" Grid.Column="0" Placeholder="Search our Catalogue..." />
+                    <Button x:Name="searchBooksButton" Grid.Row="0" Grid.Column="1" Text="Search" Clicked="searchBooksButton_Clicked"/>
+                </Grid>
+                
                 <Label
                     Text="Recently Reviewed Books"
                     Margin="30,25, 0, 0"
