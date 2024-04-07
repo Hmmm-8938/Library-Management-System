@@ -36,6 +36,7 @@ namespace Library_Management_System.Models
         {
             //search db table and add to/return list
             //first name, last name, userID
+            return null;
         }
     }
 }
