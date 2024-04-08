@@ -109,23 +109,21 @@
                 <HorizontalStackLayout>
                     <ScrollView Orientation="Horizontal">
                         <!--Book #1-->
-                        <VerticalStackLayout>
+                        <VerticalStackLayout
+                        WidthRequest="200"
+                        Margin="30,25,0,0"
+                        >
                             <Image
                                 x:Name="Book1Image"
-                                Source="harry_potter_and_the_philosophers_stone_cover.jpg"
-                                WidthRequest="200"
                             ></Image>
                             <Label
                                 x:Name="Book1Title"
-                                Text="Harry Potter and the Philosophers Stone"
                             ></Label>
                             <Label
                                 x:Name="Book1Author"
-                                Text="J.K Rowling"
                             ></Label>
                             <Label
                                 x:Name="Book1ISBN"
-                                Text="1408855895"
                             ></Label>
                             <Button
                                 Text="Place Hold"
@@ -135,25 +133,22 @@
                             ></Button>
                         </VerticalStackLayout>
                         <!--Closing Book #1-->
-
                         <!--Book #2-->
-                        <VerticalStackLayout>
+                        <!--<VerticalStackLayout
+                        WidthRequest="200"
+                        Margin="30,25,0,0"
+                        >
                             <Image
                                 x:Name="Book2Image"
-                                Source="harry_potter_and_the_philosophers_stone_cover.jpg"
-                                WidthRequest="200"
                             ></Image>
                             <Label
                                 x:Name="Book2Title"
-                                Text="Harry Potter and the Philosophers Stone"
                             ></Label>
                             <Label
                                 x:Name="Book2Author"
-                                Text="J.K Rowling"
                             ></Label>
                             <Label
                                 x:Name="Book2ISBN"
-                                Text="1408855895"
                             ></Label>
                             <Button
                                 Text="Place Hold"
@@ -161,10 +156,8 @@
                                 FontAttributes="Bold"
                                 BackgroundColor="DarkGreen"
                             ></Button>
-                        </VerticalStackLayout>
+                        </VerticalStackLayout>-->
                         <!--Closing Book #2-->
-                    
-                    
                     </ScrollView>
                 </HorizontalStackLayout>
                 <Label
