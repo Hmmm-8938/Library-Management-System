@@ -5,5 +5,41 @@
              Title="CreateLibraryCard">
     <VerticalStackLayout>
         
+        <Label
+        Text="Register for a Library Card"
+        FontSize="24"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
+
+        <Label
+        Text="Name"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="First Name"/>
+            <Label Text="Last Name"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Entry/>
+            <Entry/>
+        </HorizontalStackLayout>
+
+        <Label
+        Text="Date Of Birth"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
+
+        <Label
+        Text="Address"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
+        
+
+        <Label
+        Text="Contact Number"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

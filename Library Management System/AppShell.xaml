@@ -41,9 +41,18 @@
         Route="CreateLibraryCard"
         Icon="create_library_card_icon.png"/>
 
-    <ShellContent
-        Title="CheckInOutBooks"
-        ContentTemplate="{DataTemplate local:CheckInOutBooks}"
-        Route="CheckInOutBooks"
-        Icon="checkin_checkout_books_icon.png"/>
+    <FlyoutItem Title="CheckInOutBooks" Icon="checkin_checkout_books_icon.png">
+        <Tab Title="CheckInBooksTab">
+            <ShellContent
+               Title="CheckInBook"
+               ContentTemplate="{DataTemplate local:CheckInBooks}"
+               Route="CheckInBooks" />
+        </Tab>
+        <Tab Title="CheckOutBooksTab">
+            <ShellContent
+                Title="CheckOutBook"
+                ContentTemplate="{DataTemplate local:CheckOutBooks}"
+                Route="CheckOutBooks" />
+        </Tab>
+    </FlyoutItem>
 </Shell>
