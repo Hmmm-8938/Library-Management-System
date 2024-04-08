@@ -36,10 +36,13 @@
         FontAttributes="Bold"
         HorizontalOptions="Center"/>
         
+        <Entry HorizontalOptions="Center"/>
 
         <Label
         Text="Contact Number"
         FontAttributes="Bold"
         HorizontalOptions="Center"/>
+
+        <Entry HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

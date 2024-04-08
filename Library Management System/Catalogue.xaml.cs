@@ -5,7 +5,6 @@ public partial class Catalogue : ContentPage
     public Catalogue()
     {
         InitializeComponent();
-        var b1 = Book1Image;
     }
 
     private void Button_Clicked(object sender, EventArgs e)
