@@ -291,7 +291,7 @@
                 Margin="30,25,0,0"
                 FontSize="Medium"
                 ></Label>
-                <ScrollView Orientation="Vertical">
+                <ScrollView Orientation="Horizontal">
                     <HorizontalStackLayout>
                         <!--Book #1-->
                         <VerticalStackLayout
