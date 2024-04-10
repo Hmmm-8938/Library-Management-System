@@ -5,6 +5,9 @@ public partial class Catalogue : ContentPage
     public Catalogue()
     {
         InitializeComponent();
+
+        Database_Manager database = new Database_Manager();
+
         Book1Image.Source = "harry_potter_and_the_philosophers_stone_cover.jpg";
         Book1Title.Text = "Title: Harry Potter and the Philosophers Stone";
         Book1Author.Text = "Author: J.K Rowling";
@@ -120,8 +123,6 @@ public partial class Catalogue : ContentPage
         Book47Title.Text = "Title: Harry Potter and the Deathly Hallows";
         Book47Author.Text = "Author: J.K Rowling";
         Book47ISBN.Text = "ISBN: 1408855712";
-
-
     }
 
     private void Button_Clicked(object sender, EventArgs e)
