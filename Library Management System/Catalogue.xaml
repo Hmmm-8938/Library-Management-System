@@ -21,7 +21,7 @@
                     Width="Auto"
                 />
             </Grid.ColumnDefinitions>
-            
+
             <!--Defining the rows for the table grid at top of program-->
             <Grid.RowDefinitions>
                 <!-- The row for the top bar which has the Calgary Public Library Logo, and Log-In Button.-->
@@ -37,7 +37,7 @@
                     Height="50"
                 ></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <!--Populating the first column first row of the grid-->
             <Image
                 Grid.Column="0"
@@ -45,7 +45,7 @@
                 Source="cpl_logo.png"
                 WidthRequest="150"
             ></Image>
-            
+
             <!--Populating the second column first row of the grid-->
             <BoxView
                 Grid.Column="1"
@@ -53,7 +53,7 @@
                 WidthRequest="0"
                 HeightRequest="0"
             ></BoxView>
-            
+
             <!--Populating the third column first row of the grid-->
             <Button
                 Grid.Column="2"
@@ -65,7 +65,7 @@
                 Text="Log-In"
                 Clicked="Button_Clicked_1"
             ></Button>
-            
+
             <!--Populating the first column second row of the grid-->
             <Label
                 Grid.Column="0"
@@ -76,14 +76,14 @@
                 FontSize="Large"
                 HorizontalTextAlignment="Center"
             ></Label>
-            
+
             <!--Populating the second column second row of the grid-->
             <Entry
                 Grid.Column="1"
                 Grid.Row="2"
                 Placeholder="Search our catalogue..."
             ></Entry>
-            
+
             <!--Populating the third column third row of the grid-->
             <Button
                 Grid.Column="2"
@@ -845,149 +845,3 @@
     </VerticalStackLayout>
 </ContentPage>
 
-
-<!--<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Library_Management_System.Catalogue"
-             Title="Catalogue" >
-    <StackLayout VerticalOptions="StartAndExpand">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    --><!-- Column for the Image --><!--
-                    <ColumnDefinition Width="*" />
-                    --><!-- Column for the Spacer --><!--
-                    <ColumnDefinition Width="Auto" />
-                    --><!-- Column for the Rectangle --><!--
-                </Grid.ColumnDefinitions>
-
-                --><!-- Image --><!--
-                <Image
-                Source="cpl_logo.png"
-                WidthRequest="150"
-                Grid.Column="0"
-                HorizontalOptions="Start"
-            />
-
-                --><!-- Spacer --><!--
-                <BoxView
-                Grid.Column="1"
-                WidthRequest="0"
-                HeightRequest="0"
-            />
-
-                --><!-- Rectangle --><!--
-                <Rectangle
-                WidthRequest="100"
-                HeightRequest="50"
-                BackgroundColor="DarkCyan"
-                Grid.Column="2"
-                HorizontalOptions="End"
-                Margin="0,0,10,0"
-            />
-            </Grid>
-            <VerticalStackLayout>
-                <Grid RowDefinitions="*" Grid.ColumnDefinitions="5*,*" Margin="10">
-                    <Entry x:Name="searchBooks" Grid.Row="0" Grid.Column="0" Placeholder="Search our Catalogue..." />
-                    <Button x:Name="searchBooksButton" Grid.Row="0" Grid.Column="1" Text="Search" Clicked="searchBooksButton_Clicked"/>
-                </Grid>
-                
-                <Label
-                    Text="Recently Reviewed Books"
-                    Margin="30,25, 0, 0"
-                    FontSize="Medium"
-                    FontAttributes="Bold"
-                ></Label>
-                <HorizontalStackLayout
-                    Margin="30,30,0,0"
-                >
-                    <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="0,0,30,0"
-                    >
-                        <Image
-                            Source="harry_potter_and_the_philosophers_stone_cover.jpg"
-                            WidthRequest="200"
-                        ></Image>
-                        <Label
-                            Text="Harry Potter and the Philosopher's Stone"
-                        ></Label>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="0,0,30,0"
-                    >
-                        <Image
-                            Source="harry_potter_and_the_chamber_of_secrets_cover.jpg"
-                            WidthRequest="200"
-                        ></Image>
-                        <Label
-                            Text="Harry Potter and the Chamber of Secrets"
-                        ></Label>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="0,0,30,0"
-                    >
-                        <Image
-                            Source="harry_potter_and_the_prisoner_of_azkaban_cover.jpg"
-                            WidthRequest="200"
-                        ></Image>
-                        <Label
-                            Text="Harry Potter and the Prisoner of Azkaban"
-                        ></Label>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="0,0,30,0"
-                    >
-                        <Image
-                            Source="harry_potter_and_the_goblet_of_fire_cover.jpg"
-                            WidthRequest="200"
-                        ></Image>
-                        <Label
-                            Text="Harry Potter and the Goblet of Fire"
-                        ></Label>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="0,0,30,0"
-                    >
-                        <Image
-                            Source="harry_potter_and_the_order_of_the_phoenix_cover.jpg"
-                            WidthRequest="200"
-                        ></Image>
-                        <Label
-                            Text="Harry Potter and the Order of The Phoenix"
-                        ></Label>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="0,0,30,0"
-                    >
-                        <Image
-                            Source="harry_potter_and_the_half_blood_prince_cover.jpg"
-                            WidthRequest="200"
-                        ></Image>
-                        <Label
-                            Text="Harry Potter and the Half Blood Prince"
-                        ></Label>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="0,0,30,0"
-                    >
-                        <Image
-                            Source="harry_potter_and_the_deathly_hallows_cover.jpg"
-                            WidthRequest="200"
-                        ></Image>
-                        <Label
-                            Text="Harry Potter and the Deathly Hallows"
-                        ></Label>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-        </StackLayout>
-    </ScrollView>
-</ContentPage>-->
