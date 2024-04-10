@@ -14,23 +14,23 @@ namespace Library_Management_System.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public DateOnly DOB { get; set; }
+        //public DateOnly DOB { get; set; }
         public float Balance { get; set; }
 
-        public User(string phoneNumber, string firstName, string lastName, string email, DateOnly dOB)
+        public User(string phoneNumber, string firstName, string lastName, string email) //DateOnly dOB
         {
             //PIN generated here?
             PhoneNumber = phoneNumber;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
-            DOB = dOB;
+            //DOB = dOB;
             Balance = 0;
         }
 
         public override string ToString()
         {
-            return $"Phone Number: {PhoneNumber}, Name: {FirstName} {LastName}, Email: {Email}, DOB: {DOB}";
+            return $"Phone Number: {PhoneNumber}, Name: {FirstName} {LastName}, Email: {Email}"; //, DOB: {DOB}
         }
     }
 }
