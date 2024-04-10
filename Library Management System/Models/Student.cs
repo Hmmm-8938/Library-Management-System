@@ -8,7 +8,7 @@ namespace Library_Management_System.Models
 {
     public class Student : User
     {
-        public Student(string phoneNumber, string firstName, string lastName, string email, DateOnly dOB) : base(phoneNumber, firstName, lastName, email, dOB)
+        public Student(string phoneNumber, string firstName, string lastName, string email) : base(phoneNumber, firstName, lastName, email) // dOB //DateOnly dOB
         {
             this.UserID = NewStudentId();
         }
