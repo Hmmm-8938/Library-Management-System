@@ -6,4 +6,9 @@ public partial class CreateLibraryCard : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void Create_User(object sender, EventArgs e)
+    {
+
+    }
 }
