@@ -2,13 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Library_Management_System.CheckOutBooks"
-             Title="CheckOutBooks">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label
-            Text="CHECK OUT" />
+             Title="Check Out" >
+
+    <VerticalStackLayout Margin="15">
+        <Label x:Name="CheckOutBookLabel" Text="Enter Book ID:" Margin="5" HorizontalOptions="Center"/>
+        <Entry x:Name="CheckOutBookEntry" Placeholder="Book ID" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
+        <Label x:Name="CheckOutUserLabel" Text="Enter Library Card Number:" Margin="5" HorizontalOptions="Center"/>
+        <Entry x:Name="CheckOutUserEntry" Placeholder="Library Card Number" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
+        <Button
+            x:Name="CheckOutBtn"
+            WidthRequest="100"
+            HeightRequest="50"
+            BackgroundColor="DarkCyan"
+            Margin="10"
+            Text="Check Out"
+            Clicked="CheckOut_Clicked"
+    ></Button>
+        <Label x:Name="CheckOutMsg" Text="" Margin="5" HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>

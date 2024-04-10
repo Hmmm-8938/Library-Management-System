@@ -6,4 +6,9 @@ public partial class CheckInBooks : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void CheckIn_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
