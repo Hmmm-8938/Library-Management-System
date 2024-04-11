@@ -17,6 +17,7 @@ namespace Library_Management_System.Models
 
             database.CreateTable<Book>();
             database.CreateTable<User>();
+            database.CreateTable<UserBook>();
             // Define some for users
         }
 
