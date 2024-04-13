@@ -47,7 +47,7 @@ namespace Library_Management_System.Models
             FirstName = firstName;
             LastName = lastName;
             Email = email;
-            DOB = dOB;
+            //DOB = dOB;
             Balance = 0;
         }
 
@@ -58,7 +58,7 @@ namespace Library_Management_System.Models
         }
         public override string ToString()
         {
-            return $"Phone Number: {PhoneNumber}, Name: {FirstName} {LastName}, Email: {Email}, DOB: {DOB}";
+            return $"Phone Number: {PhoneNumber}, Name: {FirstName} {LastName}, Email: {Email}"; //, DOB: {DOB}
         }
     }
 }
