@@ -47,7 +47,7 @@
 
         <!-- Phone Number Label and Entry -->
         <Label
-            Text="Contact Number"
+            Text="Phone Number"
             FontAttributes="Bold"
             HorizontalOptions="Center"
             Margin="10,10,10,0"/>
