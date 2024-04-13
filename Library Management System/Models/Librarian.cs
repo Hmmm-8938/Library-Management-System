@@ -8,8 +8,8 @@ namespace Library_Management_System.Models
 {
     public class Librarian : User
     {
+        public Librarian(string phoneNumber, string firstName, string lastName, string email, DateTime dOB) : base(phoneNumber, firstName, lastName, email, dOB)
 
-        public Librarian(string phoneNumber, string firstName, string lastName, string email) : base(phoneNumber, firstName, lastName, email) //dOB
         {
             this.UserID = NewLibrarianId();
         }

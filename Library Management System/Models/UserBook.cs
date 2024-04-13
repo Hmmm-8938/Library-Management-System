@@ -4,23 +4,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
 using System.ComponentModel.DataAnnotations;
 
 namespace Library_Management_System
 {
-    class UserBook
+    public class UserBook
     {
-        [Required]
         [PrimaryKey, AutoIncrement]
         public int Reference { get; set; }
+
         [Required]
-        public int BookId { get; set; }
+        public int UserID { get; set; }
+
         [Required]
-        public int UserId { get; set; }
+        public int BookID { get; set; }
+
         [Required]
-        public string CheckOutDate { get; set; }
+        public DateTime CheckOutDate { get; set; }
+
         [Required]
-        public string DueDate { get; set; }
+        public DateTime DueDate { get; set; }
+
+        public DateTime? ReturnDate { get; set; }
+
+        public int? DaysOverdue { get; set; }
+
+        public UserBook() { }
+        public UserBook(int userID, int bookID, DateTime checkOutDate, DateTime dueDate)
+        {
+            this.UserID = userID;
+            this.BookID = bookID;
+            this.CheckOutDate = checkOutDate;
+            this.DueDate = dueDate;
+        }
+        public UserBook(int reference, int userID, int bookID, DateTime checkOutDate, DateTime dueDate, DateTime returnDate, int daysOverdue)
+        {
+            this.Reference = reference;
+            this.UserID = userID;
+            this.BookID = bookID;
+            this.CheckOutDate = checkOutDate;
+            this.DueDate = dueDate;
+            this.ReturnDate = returnDate;
+            this.DaysOverdue = daysOverdue;
+        }
     }
 }
