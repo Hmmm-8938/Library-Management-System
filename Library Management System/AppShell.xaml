@@ -45,7 +45,7 @@
             <ShellContent
                Title="CheckInBook"
                ContentTemplate="{DataTemplate local:CheckInBooks}"
-               Route="CheckInBooks" />
+               Route="CheckInBooks"/>
         </Tab>
         <Tab Title="Check Out Books">
             <ShellContent

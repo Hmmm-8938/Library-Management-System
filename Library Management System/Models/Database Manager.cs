@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
@@ -9,7 +10,7 @@ namespace Library_Management_System.Models
 {
     public class Database_Manager
     {
-        private SQLiteConnection database;
+        private static SQLiteConnection database;
 
         public Database_Manager()
         {
@@ -50,21 +51,62 @@ namespace Library_Management_System.Models
         {
             return database.Query<Book>($"SELECT * FROM Book WHERE title LIKE(%{title}%)");
         }
-
-        public void CheckInBook(int userID, int bookID)
+        public static bool RowExists(int bookID)
         {
-            //check if book is in table
-            //if it is, remove row from table and call BookManager.CheckInBook to change book status
-            //decide it something happens with fees as well
+            bool rowExists = false;
+            int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM UserBook WHERE BookID = {bookID} AND ReturnDate IS NULL;");
+            if(count > 0)
+            {
+                rowExists = true;
+            }
+            return rowExists;
         }
-        public void CheckOutBook(int userID, int bookID)
+        public static bool CheckInBook(int bookID)
         {
-            //checks if user has any fees- if they do, cannot check out book (potentially also if they have overdue books)
-            //checks if user is student or instructor
-            //if student, duedate will be +14 days
-            //if instructor duedate will be +28 days
-            //adds user ID, book ID and duedate to bridge table
-            //calls BookManager.CheckOutBook to change status
+            if(RowExists(bookID) == true)
+            {
+                DateTime returnDate = DateTime.Now;
+                database.UpdateAll($"UPDATE UserBook SET ReturnDate = {returnDate} AND DaysOverdue = ROUND(julianday({returnDate}) - julianday(DueDate)) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
+                int daysOverdue = database.ExecuteScalar<int>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate};");
+                if (daysOverdue > 0)
+                {
+                    int userID = database.ExecuteScalar<int>($"SELECT UserID FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate};");
+                    AddUserFees(userID, daysOverdue);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static void AddUserFees(int userID, int daysOverdue)
+        {
+
+        }
+        public static bool CheckOutBook(int userID, int bookID)
+        {
+            DateTime today = DateTime.Now;
+            List<Book> hasOverdueBooks = GetUserOverdueBooks(userID);
+            float userBalance = database.ExecuteScalar<float>($"SELECT Balance FROM User WHERE UserID = {userID};");
+            if (userBalance > 0 || hasOverdueBooks != null )
+            {
+                return false;
+            }
+            else
+            {
+                int daysToBorrow = 28;
+                string userIDString = userID.ToString();
+                if (userIDString[0] == '1')
+                {
+                    daysToBorrow = 14;
+                }
+                DateTime dueDate = today.AddDays(daysToBorrow);
+                UserBook userBook = new UserBook(userID, bookID, today, dueDate);
+                database.Insert(userBook);
+                //ChangeBookStatus(bookID);
+                return true;
+            }
         }
         public List<Book> GetCheckedOutBooks()
         {
@@ -80,6 +122,11 @@ namespace Library_Management_System.Models
         public List<Book> GetUserOverdueBooks(int userID)
         {
             //return all overdue books in table with matching userID
+            //if (hasCheckedOutBooks == true)
+            //{
+            //    DateTime dueDate = database.ExecuteScalar<DateTime>($"SELECT DueDate FROM UserBook WHERE BookID = {bookID} AND ReturnDate IS NULL;");
+            //    daysOverdue = (today - dueDate).TotalDays;
+            //}
             return null;
         }
 
