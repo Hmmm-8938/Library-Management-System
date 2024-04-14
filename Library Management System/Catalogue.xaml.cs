@@ -132,8 +132,8 @@ public partial class Catalogue : ContentPage
         
     }
 
-    private void Button_Clicked_1(object sender, EventArgs e)
+    private void Login_Clicked(object sender, EventArgs e)
     {
-        
+        Shell.Current.GoToAsync(nameof(Login));
     }
 }

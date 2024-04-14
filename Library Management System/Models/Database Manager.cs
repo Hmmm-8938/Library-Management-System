@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using Windows.Security.Authentication.OnlineId;
 using Windows.System;
 
 namespace Library_Management_System.Models
@@ -150,7 +151,16 @@ namespace Library_Management_System.Models
             List<Book> overdueBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE UserID = '{userID}' AND ReturnDate IS NULL AND (julianday('now') - julianday('DueDate') > 0);");
             return overdueBooks;
         }
-
+        public static bool ValidateUser(int userID, string pin)
+        {
+            bool userValid = false;
+            int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM User WHERE UserID = '{userID}' AND PIN = '{pin}';");
+            if (count > 0)
+            {
+                userValid = true;
+            }
+            return userValid;
+        }
         //public void AddUser(int userID, string PIN, string phoneNumber, string firstName, string lastName, string email, DateOnly dOB, float balance)
         //{
         //    //can we do user here instead of three separate adds?
