@@ -66,6 +66,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="BooksAdd.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="BooksAvailable.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="BooksCheckedOut.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="BooksOnHold.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="BooksOverdue.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Catalogue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
