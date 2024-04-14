@@ -126,13 +126,35 @@ public partial class Catalogue : ContentPage
         Book47ISBN.Text = "ISBN: 1408855712";
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        
+        base.OnAppearing();
+        if (AccessManager.ActiveUser != null)
+        {
+            loginbtn.Text = "Logout";
+        }
+        else
+        {
+            loginbtn.Text = "Login";
+        }
+
+    }
+    private void Search_Clicked(object sender, EventArgs e)
+    {
+        //string searchText = searchEntry.Text;
+        //List<Book> books = Database_Manager.GetBookByTitle(searchText);
+        Shell.Current.GoToAsync(nameof(CatalogueSearchResults));
+
     }
 
     private void Login_Clicked(object sender, EventArgs e)
     {
+        if (AccessManager.ActiveUser != null)
+        {
+            AccessManager.Logout();
+            loginbtn.Text = "Login";
+            return;
+        }
         Shell.Current.GoToAsync(nameof(Login));
     }
 

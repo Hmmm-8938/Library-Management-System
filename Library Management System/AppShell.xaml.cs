@@ -5,6 +5,7 @@
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute("Catalogue", typeof(Catalogue));
             Routing.RegisterRoute("CatalogueSearchResults", typeof(CatalogueSearchResults));
             Routing.RegisterRoute("Catalogue", typeof(Catalogue));
             Routing.RegisterRoute("CheckInBooks", typeof(CheckInBooks));
