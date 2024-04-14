@@ -6,5 +6,8 @@ public partial class BooksAdd : ContentPage
 	{
 		InitializeComponent();
 	}
-    
+    private void AddClicked(object sender, EventArgs e)
+    {
+
+    }
 }

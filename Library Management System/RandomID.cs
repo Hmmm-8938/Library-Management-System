@@ -6,26 +6,23 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System
 {
-    //Credit to Jaxson
     class RandomID
     {
-        public static string CreateID()
+        //This function generates an ID after given a starting number
+        public static int CreateUserID(int StartId)
         {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var stringChar = new char[1];
-            Random random = new Random();
-            for (int i = 0; i < stringChar.Length; i++)
-            {
-                stringChar[i] = chars[random.Next(chars.Length)];
-            }
+            //Declare Variables
+            var IdCode = new StringBuilder();
+            var random = new Random();
 
-            var UserID = new StringBuilder();
+            //Add first number then generate random ID
+            IdCode.Append(StartId.ToString());
+            IdCode.Append(random.Next(1000, 9999));
 
-            UserID.Append(stringChar);
-            UserID.Append(random.Next(1000, 9999));
+            //Convert to int
+            int IdCodeInt = Convert.ToInt32(IdCode.ToString());
 
-
-            return UserID.ToString();
+            return IdCodeInt;
         }
     }
 }
