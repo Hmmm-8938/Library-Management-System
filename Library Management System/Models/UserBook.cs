@@ -10,7 +10,7 @@ namespace Library_Management_System
 {
     public class UserBook
     {
-        [PrimaryKey, AutoIncrement]
+        [Required, PrimaryKey, AutoIncrement]
         public int Reference { get; set; }
 
         [Required]
