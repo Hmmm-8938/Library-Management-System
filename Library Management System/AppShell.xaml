@@ -6,7 +6,6 @@
     xmlns:local="clr-namespace:Library_Management_System"
     Shell.FlyoutBehavior="{OnIdiom Default=Flyout}"
     Shell.NavBarIsVisible="False"
-    Shell.TabBarIsVisible="False"
     Shell.FlyoutWidth="200"
     Title="Library_Management_System">
 
@@ -42,13 +41,13 @@
         Icon="create_library_card_icon.png"/>
 
     <FlyoutItem Title="CheckInOutBooks" Icon="checkin_checkout_books_icon.png">
-        <Tab Title="CheckInBooksTab">
+        <Tab Title="Check In Books">
             <ShellContent
                Title="CheckInBook"
                ContentTemplate="{DataTemplate local:CheckInBooks}"
-               Route="CheckInBooks" />
+               Route="CheckInBooks"/>
         </Tab>
-        <Tab Title="CheckOutBooksTab">
+        <Tab Title="Check Out Books">
             <ShellContent
                 Title="CheckOutBook"
                 ContentTemplate="{DataTemplate local:CheckOutBooks}"
