@@ -7,7 +7,6 @@ public partial class Catalogue : ContentPage
     public Catalogue()
     {
         InitializeComponent();
-        
         Database_Manager database = new Database_Manager();
 
         Book1Image.Source = "harry_potter_and_the_philosophers_stone_cover.jpg";
@@ -159,4 +158,15 @@ public partial class Catalogue : ContentPage
         Shell.Current.GoToAsync(nameof(Login));
     }
 
+    public void updateLogin()
+    {
+        if(AccessManager.ActiveUser != null)
+        {
+            loginbtn.Text = "Logout";
+        }
+        else
+        {
+            loginbtn.Text = "Login";
+        }
+    }
 }

@@ -31,7 +31,6 @@ public partial class Login : ContentPage
             else
             {
                 Shell.Current.Navigation.PopAsync();
-                
             }
         }
         else
