@@ -21,22 +21,22 @@ public partial class CheckOutBooks : ContentPage
 		}
 		int bookID = Convert.ToInt32(enteredBookID);
 		int userID = Convert.ToInt32(enteredUserID);
-        //bool userIDIsValid = Database_Manager.validUser();
-        //if (userIDIsValid == false)
-        //{
-        //	CheckOutMsg.Text = "User ID not found";
-        //	return;
-        //}
-        //bool bookIDIsValid = Database_Manager.validBook();
-        //if (bookIDIsValid == false)
-        //{
-        //    CheckOutMsg.Text = "Book ID not found";
-        //    return;
-        //}
+        bool userIDIsValid = Database_Manager.UserExists(userID);
+        if (userIDIsValid == false)
+        {
+            CheckOutMsg.Text = "User ID not found";
+            return;
+        }
+        bool bookIDIsValid = Database_Manager.BookExists(bookID);
+        if (bookIDIsValid == false)
+        {
+            CheckOutMsg.Text = "Book ID not found";
+            return;
+        }
         bool successful = Database_Manager.CheckOutBook(userID, bookID);
         if (successful)
         {
-            CheckOutMsg.Text = $"{bookID} successfully checked out to User: {userID}";
+            CheckOutMsg.Text = $"Book: {bookID} successfully checked out to User: {userID}";
         }
         else
         {

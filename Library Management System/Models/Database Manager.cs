@@ -61,16 +61,38 @@ namespace Library_Management_System.Models
             }
             return rowExists;
         }
+
+        public static bool UserExists(int userID)
+        {
+            bool userExists = false;
+            int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM User WHERE UserID = {userID};");
+            if (count > 0) 
+            {
+                userExists = true;
+            }
+            return userExists;
+        }
+
+        public static bool BookExists(int bookID)
+        {
+            bool bookExists = false;
+            int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM Book WHERE BookID = {bookID};");
+            if (count > 0)
+            {
+                bookExists = true;
+            }
+            return bookExists;
+        }
         public static bool CheckInBook(int bookID)
         {
             if(RowExists(bookID) == true)
             {
                 DateTime returnDate = DateTime.Now;
-                database.UpdateAll($"UPDATE UserBook SET ReturnDate = {returnDate} AND DaysOverdue = ROUND(julianday({returnDate}) - julianday(DueDate)) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
-                int daysOverdue = database.ExecuteScalar<int>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate};");
+                database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND(julianday('{returnDate:yyyy-MM-dd HH:mm:ss}') - julianday(DueDate, 'yyyy-MM-dd HH:mm:ss')) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
+                int daysOverdue = database.ExecuteScalar<int>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate:yyyy-MM-dd HH:mm:ss};");
                 if (daysOverdue > 0)
                 {
-                    int userID = database.ExecuteScalar<int>($"SELECT UserID FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate};");
+                    int userID = database.ExecuteScalar<int>($"SELECT UserID FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate:yyyy-MM-dd HH:mm:ss};");
                     AddUserFees(userID, daysOverdue);
                 }
                 return true;
@@ -108,18 +130,18 @@ namespace Library_Management_System.Models
                 return true;
             }
         }
-        public List<Book> GetCheckedOutBooks()
+        public static List<Book> GetCheckedOutBooks()
         {
             //search db and add/return list of books in bridge table
             //join to other tables in sql query to get info on book and user?
             return null;
         }
-        public List<Book> GetUserCheckedOutBooks(int userID)
+        public static List<Book> GetUserCheckedOutBooks(int userID)
         {
             //return all books in table with matching userID
             return null;
         }
-        public List<Book> GetUserOverdueBooks(int userID)
+        public static List<Book> GetUserOverdueBooks(int userID)
         {
             //return all overdue books in table with matching userID
             //if (hasCheckedOutBooks == true)

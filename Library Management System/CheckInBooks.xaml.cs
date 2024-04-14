@@ -24,7 +24,7 @@ public partial class CheckInBooks : ContentPage
 			}
 			else
 			{
-				CheckInMsg.Text = "Check In unseccessful. Book not found. Please check Book ID and try again.";
+				CheckInMsg.Text = "Check In unsuccessful. Book not found. Please check Book ID and try again.";
 			}
         }
 		else
