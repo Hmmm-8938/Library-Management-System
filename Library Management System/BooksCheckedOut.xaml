@@ -3,44 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Library_Management_System.BooksCheckedOut"
              Title="BooksCheckedOut">
-    <VerticalStackLayout BackgroundColor="Gray">
-        <Label FontSize="20" Margin="10" TextColor="White">
-            Checked Out Books:
-        </Label>
-        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-            <Image></Image>
-            <Label TextColor="Black">book1</Label>
-            <Label TextColor="Black">[ID1]</Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-            <Image></Image>
-            <Label TextColor="Black">book2</Label>
-            <Label TextColor="Black">[ID2]</Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-            <Image></Image>
-            <Label TextColor="Black">book3</Label>
-            <Label TextColor="Black">[ID3]</Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-            <Image></Image>
-            <Label TextColor="Black">book4</Label>
-            <Label TextColor="Black">[ID4]</Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-            <Image></Image>
-            <Label TextColor="Black">book5</Label>
-            <Label TextColor="Black">[ID5]</Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-            <Image></Image>
-            <Label TextColor="Black">book6</Label>
-            <Label TextColor="Black">[ID6]</Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-            <Image></Image>
-            <Label TextColor="Black">book7</Label>
-            <Label TextColor="Black">[ID7]</Label>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+    <ScrollView Orientation="Vertical">
+        <VerticalStackLayout BackgroundColor="Gray">
+            <Label FontSize="20" Margin="10" TextColor="White">Checked Out Books:</Label>
+            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+                <Image x:Name="Book1Image" WidthRequest="100" HeightRequest="200"></Image>
+                <VerticalStackLayout>
+                    <Label x:Name="Book1Title" TextColor="Black"></Label>
+                    <Label x:Name="Book1Author" TextColor="Black"></Label>
+                    <Label x:Name="Book1ISBN" TextColor="Black"></Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+                <Image x:Name="Book2Image" WidthRequest="100" HeightRequest="200"></Image>
+                <VerticalStackLayout>
+                    <Label x:Name="Book2Title" TextColor="Black"></Label>
+                    <Label x:Name="Book2Author" TextColor="Black"></Label>
+                    <Label x:Name="Book2ISBN" TextColor="Black"></Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+                <Image x:Name="Book3Image" WidthRequest="100" HeightRequest="200"></Image>
+                <VerticalStackLayout>
+                    <Label x:Name="Book3Title" TextColor="Black"></Label>
+                    <Label x:Name="Book3Author" TextColor="Black"></Label>
+                    <Label x:Name="Book3ISBN" TextColor="Black"></Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+                <Image x:Name="Book4Image" WidthRequest="100" HeightRequest="200"></Image>
+                <VerticalStackLayout>
+                    <Label x:Name="Book4Title" TextColor="Black"></Label>
+                    <Label x:Name="Book4Author" TextColor="Black"></Label>
+                    <Label x:Name="Book4ISBN" TextColor="Black"></Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+                <Image x:Name="Book5Image" WidthRequest="100" HeightRequest="200"></Image>
+                <VerticalStackLayout>
+                    <Label x:Name="Book5Title" TextColor="Black"></Label>
+                    <Label x:Name="Book5Author" TextColor="Black"></Label>
+                    <Label x:Name="Book5ISBN" TextColor="Black"></Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+                <Image x:Name="Book6Image" WidthRequest="100" HeightRequest="200"></Image>
+                <VerticalStackLayout>
+                    <Label x:Name="Book6Title" TextColor="Black"></Label>
+                    <Label x:Name="Book6Author" TextColor="Black"></Label>
+                    <Label x:Name="Book6ISBN" TextColor="Black"></Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+                <Image x:Name="Book7Image" WidthRequest="100" HeightRequest="200"></Image>
+                <VerticalStackLayout>
+                    <Label x:Name="Book7Title" TextColor="Black"></Label>
+                    <Label x:Name="Book7Author" TextColor="Black"></Label>
+                    <Label x:Name="Book7ISBN" TextColor="Black"></Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

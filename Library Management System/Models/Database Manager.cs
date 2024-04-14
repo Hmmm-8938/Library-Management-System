@@ -21,7 +21,7 @@ namespace Library_Management_System.Models
             database.CreateTable<UserBook>();
         }
 
-        public void AddBook(Book book)
+        public static void AddBook(Book book)
         {
             database.Insert(book);
         }

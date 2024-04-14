@@ -40,6 +40,26 @@ namespace Library_Management_System.Models
             {
 
             }
+
+            else if (message == "MISSING BOOK TITLE")
+            {
+
+            }
+
+            else if (message == "MISSING BOOK AUTHOR")
+            {
+
+            }
+
+            else if (message == "MISSING BOOK ISBN")
+            {
+
+            }
+
+            else if (message == "MISSING BOOK DESCRIPTION")
+            {
+
+            }
         }
     }
 }

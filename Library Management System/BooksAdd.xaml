@@ -8,18 +8,24 @@
         <Label FontSize="20" Margin="10" TextColor="White">Add a Book:</Label>
         
         <Label TextColor="White" Margin="5">Book Title: </Label>
-        
-        <Entry x:Name="TitleEntry" Placeholder="Enter Title Here" BackgroundColor="LightGray" TextColor="Black"/>
+
+        <Entry x:Name="TitleEntry" Placeholder="Enter Title Here" BackgroundColor="LightGray" PlaceholderColor="DimGray"/>
         
         <Label TextColor="White" Margin="5">Book Author: </Label>
-        
-        <Entry x:Name="AuthorEntry" Placeholder="Enter Author Here" BackgroundColor="LightGray" TextColor="Black"/>
+
+        <Entry x:Name="AuthorEntry" Placeholder="Enter Author Here" BackgroundColor="LightGray" PlaceholderColor="DimGray"/>
         
         <Label TextColor="White" Margin="5" >ISBN: </Label>
         
-        <Entry x:Name="ISBNEntry" Placeholder="Enter ISBN Here" BackgroundColor="LightGray" TextColor="Black"/>
-        
-        <Button x:Name="AddButton" Margin="10" Clicked="AddClicked" Text="Add Book" WidthRequest="200" HeightRequest="50" BackgroundColor="White"/>
+        <Entry x:Name="ISBNEntry" Placeholder="Enter ISBN Here" BackgroundColor="LightGray" PlaceholderColor="DimGray"/>
+
+        <Label TextColor="White" Margin="5" >Description:</Label>
+
+        <Entry x:Name="DescriptionEntry" Placeholder="Enter Description Here" BackgroundColor="LightGray" PlaceholderColor="DimGray"/>
+
+        <Button x:Name="AddButton" Margin="10" Clicked="AddClicked" Text="Add Book" WidthRequest="200" HeightRequest="50" BackgroundColor="White" TextColor="Black"/>
+
+        <Label x:Name="bookNotify" Margin="10" HorizontalOptions="Center"></Label> 
         
     </VerticalStackLayout>
 </ContentPage>
