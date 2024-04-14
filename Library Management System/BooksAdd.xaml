@@ -4,12 +4,22 @@
              x:Class="Library_Management_System.BooksAdd"
              Title="BooksAdd">
     <VerticalStackLayout BackgroundColor="Gray">
-        <Label FontSize="20" Margin="10">Add a Book:</Label>
+        
+        <Label FontSize="20" Margin="10" TextColor="White">Add a Book:</Label>
+        
         <Label TextColor="White" Margin="5">Book Title: </Label>
+        
         <Entry Placeholder="Enter Title Here" BackgroundColor="LightGray" TextColor="Black"/>
+        
         <Label TextColor="White" Margin="5">Book Author: </Label>
+        
         <Entry Placeholder="Enter Author Here" BackgroundColor="LightGray" TextColor="Black"/>
+        
         <Label TextColor="White" Margin="5" >ISBN: </Label>
+        
         <Entry Placeholder="Enter ISBN Here" BackgroundColor="LightGray" TextColor="Black"/>
+        
+        <Button x:Name="AddButton" Margin="10" Clicked="AddClicked" Text="Add Book" WidthRequest="200" HeightRequest="50" BackgroundColor="White"/>
+        
     </VerticalStackLayout>
 </ContentPage>
