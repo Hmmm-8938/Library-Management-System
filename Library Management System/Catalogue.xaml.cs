@@ -7,7 +7,6 @@ public partial class Catalogue : ContentPage
     public Catalogue()
     {
         InitializeComponent();
-
         Database_Manager database = new Database_Manager();
 
         Book1Image.Source = "harry_potter_and_the_philosophers_stone_cover.jpg";
@@ -127,18 +126,47 @@ public partial class Catalogue : ContentPage
         Book47ISBN.Text = "ISBN: 1408855712";
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        
+        base.OnAppearing();
+        if (AccessManager.ActiveUser != null)
+        {
+            loginbtn.Text = "Logout";
+        }
+        else
+        {
+            loginbtn.Text = "Login";
+        }
+
+    }
+    private void Search_Clicked(object sender, EventArgs e)
+    {
+        //string searchText = searchEntry.Text;
+        //List<Book> books = Database_Manager.GetBookByTitle(searchText);
+        Shell.Current.GoToAsync(nameof(CatalogueSearchResults));
+
     }
 
     private void Login_Clicked(object sender, EventArgs e)
     {
+        if (AccessManager.ActiveUser != null)
+        {
+            AccessManager.Logout();
+            loginbtn.Text = "Login";
+            return;
+        }
         Shell.Current.GoToAsync(nameof(Login));
     }
 
-    public static void updateLogin(string login)
+    public void updateLogin()
     {
-        //loginbtn.Text = $"{login}";
+        if(AccessManager.ActiveUser != null)
+        {
+            loginbtn.Text = "Logout";
+        }
+        else
+        {
+            loginbtn.Text = "Login";
+        }
     }
 }

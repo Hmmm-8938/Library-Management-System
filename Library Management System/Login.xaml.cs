@@ -30,14 +30,12 @@ public partial class Login : ContentPage
             }
             else
             {
-                Shell.Current.GoToAsync(nameof(Catalogue));
-                Catalogue.updateLogin($"Logout: {userID}");
+                Shell.Current.Navigation.PopAsync();
             }
         }
         else
         {
             AccessManager.Logout();
-            Catalogue.updateLogin("Login");
         }
     }
 }
