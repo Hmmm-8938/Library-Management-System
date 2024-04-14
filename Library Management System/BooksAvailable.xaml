@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Library_Management_System.BooksAvailable"
+             Title="BooksAvailable">
+    <VerticalStackLayout BackgroundColor="Gray">
+        <Label FontSize="20" Margin="10" TextColor="White">
+            Available Books:
+        </Label>
+        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+            <Image></Image>
+            <Label TextColor="Black">book1</Label>
+            <Label TextColor="Black">[ID1] </Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+            <Image></Image>
+            <Label TextColor="Black">book2</Label>
+            <Label TextColor="Black">[ID2]</Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+            <Image></Image>
+            <Label TextColor="Black">book3</Label>
+            <Label TextColor="Black">[ID3]</Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+            <Image></Image>
+            <Label TextColor="Black">book4</Label>
+            <Label TextColor="Black">[ID4]</Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+            <Image></Image>
+            <Label TextColor="Black">book5</Label>
+            <Label TextColor="Black">[ID5]</Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+            <Image></Image>
+            <Label TextColor="Black">book6</Label>
+            <Label TextColor="Black">[ID6]</Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
+            <Image></Image>
+            <Label TextColor="Black">book7</Label>
+            <Label TextColor="Black">[ID7]</Label>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

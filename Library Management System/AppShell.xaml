@@ -6,7 +6,6 @@
     xmlns:local="clr-namespace:Library_Management_System"
     Shell.FlyoutBehavior="{OnIdiom Default=Flyout}"
     Shell.NavBarIsVisible="False"
-    Shell.TabBarIsVisible="False"
     Shell.FlyoutWidth="200"
     Title="Library_Management_System">
 
@@ -53,6 +52,38 @@
                 Title="CheckOutBook"
                 ContentTemplate="{DataTemplate local:CheckOutBooks}"
                 Route="CheckOutBooks" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="LibrarianFunctions" Icon="letter_l.png">
+        <Tab Title="Checked Out Books">
+            <ShellContent
+                Title="CheckedOutBooks"
+                ContentTemplate="{DataTemplate local:BooksCheckedOut}"
+                Route="BooksCheckedOut" />
+        </Tab>
+        <Tab Title="Available Books">
+            <ShellContent 
+                Title="AvailableBooks"
+                ContentTemplate="{DataTemplate local:BooksAvailable}"
+                Route="BooksAvailable"/>
+        </Tab>
+        <Tab Title="Books On Hold">
+            <ShellContent
+                Title="OnHoldBooks"
+                ContentTemplate="{DataTemplate local:BooksOnHold}"
+                Route="BooksOnHold" />
+        </Tab>
+        <Tab Title="Overdue Books">
+            <ShellContent
+                Title="OverdueBooks"
+                ContentTemplate="{DataTemplate local:BooksOverdue}"
+                Route="BooksOverdue" />
+        </Tab>
+        <Tab Title="Add Book">
+            <ShellContent
+                Title="AddBooks"
+                ContentTemplate="{DataTemplate local:BooksAdd}"
+                Route="BooksAdd" />
         </Tab>
     </FlyoutItem>
 </Shell>

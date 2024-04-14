@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Library_Management_System.BooksAdd"
+             Title="BooksAdd">
+    <VerticalStackLayout BackgroundColor="Gray">
+        <Label FontSize="20" Margin="10">Add a Book:</Label>
+        <Label TextColor="White" Margin="5">Book Title: </Label>
+        <Entry Placeholder="Enter Title Here" BackgroundColor="LightGray" TextColor="Black"/>
+        <Label TextColor="White" Margin="5">Book Author: </Label>
+        <Entry Placeholder="Enter Author Here" BackgroundColor="LightGray" TextColor="Black"/>
+        <Label TextColor="White" Margin="5" >ISBN: </Label>
+        <Entry Placeholder="Enter ISBN Here" BackgroundColor="LightGray" TextColor="Black"/>
+    </VerticalStackLayout>
+</ContentPage>
