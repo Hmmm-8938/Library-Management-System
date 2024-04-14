@@ -54,4 +54,11 @@
                 Route="CheckOutBooks" />
         </Tab>
     </FlyoutItem>
+
+    <ShellContent
+    Title="ViewAccount"
+    ContentTemplate="{DataTemplate local:ViewAccount}"
+    Route="ViewAccount" 
+    Icon="catalogue_icon.png"
+    />
 </Shell>

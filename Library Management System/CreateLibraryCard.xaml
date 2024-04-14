@@ -35,7 +35,7 @@
             FontAttributes="Bold"
             HorizontalOptions="Center"
             Margin="10,10,10,0"/>
-        <Entry x:Name="dob" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
+        <Entry x:Name="dob" Placeholder="yyyy/mm/dd" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
 
         <!-- Address Label and Entry -->
         <Label
@@ -47,7 +47,7 @@
 
         <!-- Phone Number Label and Entry -->
         <Label
-            Text="Contact Number"
+            Text="Phone Number"
             FontAttributes="Bold"
             HorizontalOptions="Center"
             Margin="10,10,10,0"/>

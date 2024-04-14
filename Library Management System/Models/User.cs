@@ -8,7 +8,7 @@ using SQLite;
 
 namespace Library_Management_System.Models
 {
-    public abstract class User
+    public class User
     {
         [Required] 
         [PrimaryKey]
@@ -28,8 +28,12 @@ namespace Library_Management_System.Models
         [Required]
         public float Balance { get; set; }
 
-        public User() { }
-        public User(string phoneNumber, string firstName, string lastName, string email, DateTime dOB)
+        public User() 
+        {
+        
+        }
+      
+        public User(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dOB)
         {
             PIN = GeneratePIN(phoneNumber);
             PhoneNumber = phoneNumber;
