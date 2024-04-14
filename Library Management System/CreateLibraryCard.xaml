@@ -6,43 +6,67 @@
     <VerticalStackLayout>
         
         <Label
-        Text="Register for a Library Card"
-        FontSize="24"
-        FontAttributes="Bold"
-        HorizontalOptions="Center"/>
+            Text="Register for a Library Card"
+            FontSize="24"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="20,20,20,20"/>
 
         <Label
-        Text="Name"
-        FontAttributes="Bold"
-        HorizontalOptions="Center"/>
-
+            Text="Name"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="0,10,0,0"/>
+        <!-- Name Label and Entry -->
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="First Name"/>
-            <Label Text="Last Name"/>
+            <Label Text="First Name" HorizontalOptions="Start" Margin="30,5,90,0"/>
+            <Label Text="Last Name" HorizontalOptions="Start" Margin="80,5,40,0"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Entry/>
-            <Entry/>
+            <Entry x:Name="firstName" Margin="20,0,20,10" WidthRequest="200"/>
+            <Entry x:Name="lastName" Margin="20,0,20,10" WidthRequest="200"/>
         </HorizontalStackLayout>
 
-        <Label
-        Text="Date Of Birth"
-        FontAttributes="Bold"
-        HorizontalOptions="Center"/>
 
+        <!-- DOB Label and Entry -->
         <Label
-        Text="Address"
-        FontAttributes="Bold"
-        HorizontalOptions="Center"/>
+            Text="Date Of Birth"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="10,10,10,0"/>
+        <Entry x:Name="dob" Placeholder="yyyy/mm/dd" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
+
+        <!-- Address Label and Entry -->
+        <Label
+            Text="Address"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="10,10,10,0"/>
+        <Entry x:Name="address" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
+
+        <!-- Phone Number Label and Entry -->
+        <Label
+            Text="Phone Number"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="10,10,10,0"/>
+        <Entry x:Name="phoneNumber" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
+
+        <!-- E-Mail Label and Entry-->
+        <Label
+            Text="E-mail Address"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="10,10,10,0"/>
+        <Entry x:Name="email" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
         
-        <Entry HorizontalOptions="Center"/>
-
-        <Label
-        Text="Contact Number"
-        FontAttributes="Bold"
-        HorizontalOptions="Center"/>
-
-        <Entry HorizontalOptions="Center"/>
+        <!-- Create Button-->
+        <Button 
+            Clicked="Create_User"
+            Text="Save"
+            HorizontalOptions="Center"
+            Margin="10,10,10,10"
+            Padding="100,10,100,10"/>
     </VerticalStackLayout>
 </ContentPage>

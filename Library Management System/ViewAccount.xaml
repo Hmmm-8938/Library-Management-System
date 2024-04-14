@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Library_Management_System.ViewAccount"
+             Title="ViewAccount">
+    <HorizontalStackLayout>
+        <VerticalStackLayout HorizontalOptions="Start">
+            <Label
+                Text="Account: "
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                Margin="0,10,0,0"/>
+
+            <Label
+                Text="Library Card #: "
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                Margin="0,10,0,0"/>
+
+            <Label
+                Text="Books Checked Out: "
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                Margin="0,10,0,0"/>
+
+            <Label
+                Text="Books Overdue: "
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                Margin="0,10,0,0"/>
+        </VerticalStackLayout>
+            
+        
+        
+        <VerticalStackLayout HorizontalOptions="End">
+            <HorizontalStackLayout Margin="0,20,0,10">
+                <Label
+                    Text="First Name:"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Margin="400,10,0,0"/>
+                <Entry WidthRequest="300" Margin="40,0,0,0"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0,10,0,10">
+                <Label
+                    Text="Last Name:"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Margin="400,10,0,0"/>
+                <Entry WidthRequest="300" Margin="40,0,0,0"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0,10,0,10">
+                <Label
+                    Text="E-mail Address:"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Margin="400,10,0,0"/>
+                <Entry WidthRequest="300" Margin="10,0,0,0"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0,10,0,10">
+                <Label
+                    Text="Date of Birth:"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Margin="400,10,0,0"/>
+                <Entry WidthRequest="300" Margin="25,0,0,0"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0,10,0,10">
+                <Label
+                    Text="Phone Number:"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Margin="400,10,0,0"/>
+                <Entry WidthRequest="300" Margin="8,0,0,0"/>
+            </HorizontalStackLayout>
+
+            <Button Text="Edit Information" WidthRequest="200" Margin="530,20,0,0"/>
+        </VerticalStackLayout>
+    </HorizontalStackLayout>
+    
+</ContentPage>
