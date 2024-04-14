@@ -37,14 +37,6 @@
             Margin="10,10,10,0"/>
         <Entry x:Name="dob" Placeholder="yyyy/mm/dd" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
 
-        <!-- Address Label and Entry -->
-        <Label
-            Text="Address"
-            FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Margin="10,10,10,0"/>
-        <Entry x:Name="address" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
-
         <!-- Phone Number Label and Entry -->
         <Label
             Text="Phone Number"
@@ -60,7 +52,21 @@
             HorizontalOptions="Center"
             Margin="10,10,10,0"/>
         <Entry x:Name="email" HorizontalOptions="Center" Margin="20,0,20,10" WidthRequest="200"/>
-        
+
+        <Label
+            Text="Select Type of Account"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="10,10,10,0"/>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Student" VerticalOptions="Center"/>
+            <RadioButton x:Name="studentButton" HorizontalOptions="Center" Margin="0,7,0,0" IsChecked="True"/>
+            <Label Text="Instructor" VerticalOptions="Center"/>
+            <RadioButton x:Name="instructorButton" HorizontalOptions="Center" Margin="0,7,0,0"/>
+            <Label Text="Librarian" VerticalOptions="Center"/>
+            <RadioButton x:Name="librarianButton" HorizontalOptions="Center" Margin="0,7,0,0"/>
+        </HorizontalStackLayout>
         <!-- Create Button-->
         <Button 
             Clicked="Create_User"
@@ -68,5 +74,13 @@
             HorizontalOptions="Center"
             Margin="10,10,10,10"
             Padding="100,10,100,10"/>
+
+        <Label
+            Text=""
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="10,10,10,0"
+            x:Name="createNotify"/>
+
     </VerticalStackLayout>
 </ContentPage>
