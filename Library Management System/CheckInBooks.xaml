@@ -15,6 +15,5 @@
             Text="Check In"
             Clicked="CheckIn_Clicked"
         ></Button>
-        <Label x:Name="CheckInMsg" Text="" Margin="5" HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>

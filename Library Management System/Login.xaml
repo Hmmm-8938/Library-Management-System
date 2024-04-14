@@ -15,7 +15,7 @@
         <Label x:Name="PINLabel" Text="Enter 4 Digit PIN:" Margin="5" HorizontalOptions="Center"/>
         <Entry x:Name="PINEntry" Placeholder="0000" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
         <Button
-        x:Name="LoginBtn"
+        x:Name="LoginBtn2"
         WidthRequest="100"
         HeightRequest="50"
         BackgroundColor="DarkCyan"

@@ -38,9 +38,11 @@
         Title="CreateLibraryCard"
         ContentTemplate="{DataTemplate local:CreateLibraryCard}"
         Route="CreateLibraryCard"
-        Icon="create_library_card_icon.png"/>
+        Icon="create_library_card_icon.png"
+        x:Name="CLibCard"
+        FlyoutItem.IsVisible="True"/>
 
-    <FlyoutItem Title="CheckInOutBooks" Icon="checkin_checkout_books_icon.png">
+    <FlyoutItem Title="CheckInOutBooks" Icon="checkin_checkout_books_icon.png" FlyoutItem.IsVisible="True">
         <Tab Title="Check In Books">
             <ShellContent
                Title="CheckInBook"
@@ -54,7 +56,7 @@
                 Route="CheckOutBooks" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="LibrarianFunctions" Icon="letter_l.png">
+    <FlyoutItem Title="LibrarianFunctions" Icon="librarian_functions_icon.png">
         <Tab Title="Checked Out Books">
             <ShellContent
                 Title="CheckedOutBooks"
@@ -91,7 +93,7 @@
     Title="ViewAccount"
     ContentTemplate="{DataTemplate local:ViewAccount}"
     Route="ViewAccount" 
-    Icon="catalogue_icon.png"
+    Icon="view_account_icon.png"
     />
     
 </Shell>

@@ -10,7 +10,7 @@ public partial class CheckInBooks : ContentPage
 		InitializeComponent();
 	}
 
-    private void CheckIn_Clicked(object sender, EventArgs e)
+    private async void CheckIn_Clicked(object sender, EventArgs e)
     {
 		string entry = CheckInEntry.Text;
 		bool validEntry = Int32.TryParse(entry, out int result);
@@ -20,16 +20,16 @@ public partial class CheckInBooks : ContentPage
             bool successful = Database_Manager.CheckInBook(bookID);
 			if (successful)
 			{
-				CheckInMsg.Text = "Check In was successful";
+				await DisplayAlert("Successful Check-In", "Book was successfully checked in!", "OK");
 			}
 			else
 			{
-				CheckInMsg.Text = "Check In unsuccessful. Book not found. Please check Book ID and try again.";
+				await DisplayAlert("Check-In Unseccessful", $"Book {bookID} was not found. Please check Book ID and try again", "OK");
 			}
         }
 		else
 		{
-			CheckInMsg.Text = "Book ID not valid. Please enter only numbers.";
+			await DisplayAlert("Invalid Book ID", "The provided book ID is not valid. Please use only numbers and try again", "OK");
 		}
 		
     }

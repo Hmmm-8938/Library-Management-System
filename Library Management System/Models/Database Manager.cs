@@ -66,7 +66,7 @@ namespace Library_Management_System.Models
             database.Update(user);
         }
 
-        public User GetUserById(int userId)
+        public static User GetUserById(int userId)
         {
             return database.Table<User>().Where(u => u.UserID == userId).FirstOrDefault();
         }
@@ -138,24 +138,32 @@ namespace Library_Management_System.Models
             DateTime today = DateTime.Now;
             List<Book> hasOverdueBooks = GetUserOverdueBooks(userID);
             float userBalance = database.ExecuteScalar<float>($"SELECT Balance FROM User WHERE UserID = {userID};");
-            if (userBalance > 0 || hasOverdueBooks.Count > 0 )
+            if (userBalance > 0 || hasOverdueBooks.Count > 0)
             {
                 return false;
             }
             else
             {
-                int daysToBorrow = 28;
-                string userIDString = userID.ToString();
-                if (userIDString[0] == '1')
+                int exists = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM UserBook WHERE BookID = {bookID} AND ReturnDate IS NULL;");
+                if (exists == 0)
                 {
-                    daysToBorrow = 14;
+                    int daysToBorrow = 28;
+                    string userIDString = userID.ToString();
+                    if (userIDString[0] == '1')
+                    {
+                        daysToBorrow = 14;
+                    }
+                    DateTime dueDate = today.AddDays(daysToBorrow);
+                    UserBook userBook = new UserBook(userID, bookID, today, dueDate);
+                    database.Execute($@"INSERT INTO USERBOOK (UserID, BookID, CheckOutDate, DueDate) VALUES ('{userID}', '{bookID}', '{today:yyyy-MM-dd HH:mm:ss}', '{dueDate:yyyy-MM-dd HH:mm:ss}');");
+                    //database.Insert(userBook);
+                    database.Execute($@"UPDATE Book SET Availability = 'Unavailable' WHERE BookID = '{bookID}';");
+                    return true;
                 }
-                DateTime dueDate = today.AddDays(daysToBorrow);
-                UserBook userBook = new UserBook(userID, bookID, today, dueDate);
-                database.Execute($@"INSERT INTO USERBOOK (UserID, BookID, CheckOutDate, DueDate) VALUES ('{userID}', '{bookID}', '{today:yyyy-MM-dd HH:mm:ss}', '{dueDate:yyyy-MM-dd HH:mm:ss}');");
-                //database.Insert(userBook);
-                database.Execute($@"UPDATE Book SET Availability = 'Unavailable' WHERE BookID = '{bookID}';");
-                return true;
+                else
+                {
+                    return false;
+                }
             }
         }
         public static List<Book> GetCheckedOutBooks()

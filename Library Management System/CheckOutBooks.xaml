@@ -5,10 +5,10 @@
              Title="Check Out" >
 
     <VerticalStackLayout Margin="15">
-        <Label x:Name="CheckOutBookLabel" Text="Enter Book ID:" Margin="5" HorizontalOptions="Center"/>
-        <Entry x:Name="CheckOutBookEntry" Placeholder="Book ID" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
         <Label x:Name="CheckOutUserLabel" Text="Enter Library Card Number:" Margin="5" HorizontalOptions="Center"/>
         <Entry x:Name="CheckOutUserEntry" Placeholder="Library Card Number" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
+        <Label x:Name="CheckOutBookLabel" Text="Enter Book ID:" Margin="5" HorizontalOptions="Center"/>
+        <Entry x:Name="CheckOutBookEntry" Placeholder="Book ID" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
         <Button
             x:Name="CheckOutBtn"
             WidthRequest="100"
@@ -18,6 +18,5 @@
             Text="Check Out"
             Clicked="CheckOut_Clicked"
     ></Button>
-        <Label x:Name="CheckOutMsg" Text="" Margin="5" HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>

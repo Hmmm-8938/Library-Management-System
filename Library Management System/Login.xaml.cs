@@ -9,22 +9,35 @@ public partial class Login : ContentPage
 		InitializeComponent();
 	}
 
-    private void LoginBtn_Clicked(object sender, EventArgs e)
+    private void LoginBtn2_Clicked(object sender, EventArgs e)
     {
-        string userIDString = UserIDEntry.Text;
-        string pin = PINEntry.Text;
-        bool validUserEntry = Int32.TryParse(userIDString, out int userResult);
-        bool validPINEntry = Int32.TryParse(pin, out int pinResult);
-        if (validUserEntry == false || validPINEntry == false)
+        if (AccessManager.ActiveUser == null) 
         {
-            CheckOutMsg.Text = "User ID and PIN must contain only numbers";
-            return;
+            string userIDString = UserIDEntry.Text;
+            string pin = PINEntry.Text;
+            bool validUserEntry = Int32.TryParse(userIDString, out int userResult);
+            bool validPINEntry = Int32.TryParse(pin, out int pinResult);
+            if (validUserEntry == false || validPINEntry == false)
+            {
+                CheckOutMsg.Text = "User ID and PIN must contain only numbers";
+                return;
+            }
+            int userID = Convert.ToInt32(userIDString);
+            bool validUser = AccessManager.ValidateUser(userID, pin);
+            if (validUser == false)
+            {
+                CheckOutMsg.Text = "Invalid Credentials";
+            }
+            else
+            {
+                Shell.Current.GoToAsync(nameof(Catalogue));
+                Catalogue.updateLogin($"Logout: {userID}");
+            }
         }
-        int userID = Convert.ToInt32(userIDString);
-        bool validUser = AccessManager.ValidateUser(userID, pin);
-        if (validUser == false)
+        else
         {
-            CheckOutMsg.Text = "Invalid Credentials";
+            AccessManager.Logout();
+            Catalogue.updateLogin("Login");
         }
     }
 }

@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Library_Management_System;
 
 namespace Library_Management_System.Models
 {
     public class AccessManager
     {
-        private User activeUser;
-        public User ActiveUser { get { return activeUser; } }
+        private static User activeUser;
+        public static User ActiveUser { get { return activeUser; } }
 
         public AccessManager() { }
 
-        private void SetActiveUser(User user)
+        private static void SetActiveUser(User user)
         {
             activeUser = user;
         }
@@ -24,13 +25,18 @@ namespace Library_Management_System.Models
             valid = Database_Manager.ValidateUser(ID, PIN);
             if(valid)
             {
-                //User activeUser = Database_Manager.GetUser(ID);
-                //SetActiveUser(activeUser);
+                User activeUser = Database_Manager.GetUserById(ID);
+                SetActiveUser(activeUser);
+                string UserID = ID.ToString();
+                if (UserID[0] == '9')
+                {
+                   //Shell.CLibCard.flyoutItemIsVisible = "True";
+                }
             }
             return valid;
         }
 
-        public void Logout()
+        public static void Logout()
         {
             activeUser = null;
         }

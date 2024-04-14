@@ -8,6 +8,6 @@ public partial class BooksAdd : ContentPage
 	}
     private void AddClicked(object sender, EventArgs e)
     {
-
+		
     }
 }

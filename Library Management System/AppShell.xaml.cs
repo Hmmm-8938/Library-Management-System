@@ -15,7 +15,6 @@
             Routing.RegisterRoute("BooksOverdue", typeof(BooksOverdue));
             Routing.RegisterRoute("BooksAdd", typeof(BooksAdd));
             Routing.RegisterRoute("Login", typeof(Login));
-
         }
     }
 }

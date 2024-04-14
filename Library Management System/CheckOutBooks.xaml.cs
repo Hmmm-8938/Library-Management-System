@@ -8,15 +8,15 @@ public partial class CheckOutBooks : ContentPage
 	{
 		InitializeComponent();
 	}
-    private void CheckOut_Clicked(object sender, EventArgs e)
+    private async void CheckOut_Clicked(object sender, EventArgs e)
     {
 		string enteredUserID = CheckOutUserEntry.Text;
 		bool validUserEntry = Int32.TryParse(enteredUserID, out int userResult);
         string enteredBookID = CheckOutBookEntry.Text;
         bool validBookEntry = Int32.TryParse(enteredBookID, out int bookResult);
         if (validUserEntry == false || validBookEntry == false)
-		{
-			CheckOutMsg.Text = "Book ID and User ID must contain only numbers";
+        {
+            await DisplayAlert("Only Numbers", "Book ID and User ID must contain only numbers", "OK");
 			return;
 		}
 		int bookID = Convert.ToInt32(enteredBookID);
@@ -24,23 +24,27 @@ public partial class CheckOutBooks : ContentPage
         bool userIDIsValid = Database_Manager.UserExists(userID);
         if (userIDIsValid == false)
         {
-            CheckOutMsg.Text = "User ID not found";
+            await DisplayAlert("User ID not found", "User ID was not found. Check ID and try again", "OK");
             return;
         }
         bool bookIDIsValid = Database_Manager.BookExists(bookID);
         if (bookIDIsValid == false)
         {
-            CheckOutMsg.Text = "Book ID not found";
+            await DisplayAlert("Book ID not found", "Book ID was not found. Check ID and try again", "OK");
             return;
         }
         bool successful = Database_Manager.CheckOutBook(userID, bookID);
         if (successful)
         {
-            CheckOutMsg.Text = $"Book: {bookID} successfully checked out to User: {userID}";
+            await DisplayAlert("Checkout Successful", $"Book: {bookID} successfully checked out to User: {userID}", "OK");
         }
         else
         {
-            CheckOutMsg.Text = $"Checkout unsuccessful. Check for overdue books and/or unpaid fees for User: {userID}";
+            await DisplayAlert("Checkout Unsuccessful", $"Book {bookID} is not able to be checked out \n" +
+                                                  $"The book may be checked out to another user \n" +
+                                                  $"or check for unpaid fees for User: {userID}", "OK");
         }
+        CheckOutUserEntry.Text = null;
+        CheckOutBookEntry.Text = null;
     }
 }
