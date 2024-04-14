@@ -63,7 +63,7 @@
                 BackgroundColor="DarkCyan"
                 Margin="10,0,10,0"
                 Text="Log-In"
-                Clicked="Button_Clicked_1"
+                Clicked="Login_Clicked"
             ></Button>
 
             <!--Populating the first column second row of the grid-->

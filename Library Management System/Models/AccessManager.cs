@@ -20,10 +20,7 @@ namespace Library_Management_System.Models
 
         public bool ValidateUser(int ID, string PIN)
         {
-            //checks database for match
-            //if user is valid, sets active user and returns true
-            //if user is not valid return false
-            return false;
+            return Database_Manager.ValidateUser(ID, PIN);
         }
 
         public void Logout()

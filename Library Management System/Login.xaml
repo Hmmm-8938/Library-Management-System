@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Library_Management_System.Login"
+             Title="Login">
+    <VerticalStackLayout Margin="20">
+        <Label 
+            Text="Login To Your Account"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Header"
+            Margin="15"/>
+        <Label x:Name="IDLabel" Text="Enter Library Card Number:" Margin="5" HorizontalOptions="Center"/>
+        <Entry x:Name="UserIDEntry" Placeholder="Library Card Number" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
+        <Label x:Name="PINLabel" Text="Enter 4 Digit PIN:" Margin="5" HorizontalOptions="Center"/>
+        <Entry x:Name="PINEntry" Placeholder="0000" WidthRequest="300" HorizontalOptions="Center" Margin="5" />
+        <Button
+        x:Name="LoginBtn"
+        WidthRequest="100"
+        HeightRequest="50"
+        BackgroundColor="DarkCyan"
+        Margin="10"
+        Text="Login"
+        Clicked="LoginBtn_Clicked"
+></Button>
+    </VerticalStackLayout>
+</ContentPage>

@@ -96,6 +96,9 @@
 	  <MauiXaml Update="CreateLibraryCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Login.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ViewAccount.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
