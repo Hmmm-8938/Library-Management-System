@@ -21,7 +21,7 @@
         BackgroundColor="DarkCyan"
         Margin="10"
         Text="Login"
-        Clicked="LoginBtn_Clicked"
+        Clicked="LoginBtn2_Clicked"
 ></Button>
         <Label x:Name="CheckOutMsg" Text="" Margin="5" HorizontalOptions="Center"/>
     </VerticalStackLayout>
