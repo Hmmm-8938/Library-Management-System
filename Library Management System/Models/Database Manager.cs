@@ -109,10 +109,10 @@ namespace Library_Management_System.Models
         }
         public static bool CheckInBook(int bookID)
         {
-            if(RowExists(bookID) == true)
+            if (RowExists(bookID) == true)
             {
                 DateTime returnDate = DateTime.Now;
-                database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND(julianday('{returnDate:yyyy-MM-dd HH:mm:ss}') - julianday(DueDate)) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
+                database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND((julianday('{returnDate:yyyy-MM-dd HH:mm:ss}')) - (julianday(DueDate))) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
                 int daysOverdue = database.ExecuteScalar<int>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}';");
                 if (daysOverdue > 0)
                 {
