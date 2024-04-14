@@ -23,5 +23,6 @@
         Text="Login"
         Clicked="LoginBtn_Clicked"
 ></Button>
+        <Label x:Name="CheckOutMsg" Text="" Margin="5" HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

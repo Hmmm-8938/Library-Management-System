@@ -9,15 +9,15 @@
         
         <Label TextColor="White" Margin="5">Book Title: </Label>
         
-        <Entry Placeholder="Enter Title Here" BackgroundColor="LightGray" TextColor="Black"/>
+        <Entry x:Name="TitleEntry" Placeholder="Enter Title Here" BackgroundColor="LightGray" TextColor="Black"/>
         
         <Label TextColor="White" Margin="5">Book Author: </Label>
         
-        <Entry Placeholder="Enter Author Here" BackgroundColor="LightGray" TextColor="Black"/>
+        <Entry x:Name="AuthorEntry" Placeholder="Enter Author Here" BackgroundColor="LightGray" TextColor="Black"/>
         
         <Label TextColor="White" Margin="5" >ISBN: </Label>
         
-        <Entry Placeholder="Enter ISBN Here" BackgroundColor="LightGray" TextColor="Black"/>
+        <Entry x:Name="ISBNEntry" Placeholder="Enter ISBN Here" BackgroundColor="LightGray" TextColor="Black"/>
         
         <Button x:Name="AddButton" Margin="10" Clicked="AddClicked" Text="Add Book" WidthRequest="200" HeightRequest="50" BackgroundColor="White"/>
         

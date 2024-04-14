@@ -24,5 +24,12 @@ namespace Library_Management_System
 
             return IdCodeInt;
         }
+
+        //Generates a 4 digit pin for the user
+        public static string GeneratePIN(string phoneNumber)
+        {
+            string pin = phoneNumber.Substring(phoneNumber.Length - 4);
+            return pin;
+        }
     }
 }

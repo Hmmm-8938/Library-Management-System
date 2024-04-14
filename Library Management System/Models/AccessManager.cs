@@ -18,9 +18,16 @@ namespace Library_Management_System.Models
             activeUser = user;
         }
 
-        public bool ValidateUser(int ID, string PIN)
+        public static bool ValidateUser(int ID, string PIN)
         {
-            return Database_Manager.ValidateUser(ID, PIN);
+            bool valid = false;
+            valid = Database_Manager.ValidateUser(ID, PIN);
+            if(valid)
+            {
+                //User activeUser = Database_Manager.GetUser(ID);
+                //SetActiveUser(activeUser);
+            }
+            return valid;
         }
 
         public void Logout()

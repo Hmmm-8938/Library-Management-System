@@ -5,8 +5,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using Windows.Security.Authentication.OnlineId;
-using Windows.System;
 
 namespace Library_Management_System.Models
 {
@@ -21,7 +19,6 @@ namespace Library_Management_System.Models
             database.CreateTable<Book>();
             database.CreateTable<User>();
             database.CreateTable<UserBook>();
-            // Define some for users
         }
 
         public void AddBook(Book book)
@@ -47,6 +44,31 @@ namespace Library_Management_System.Models
         public Book GetBookById(int bookId)
         {
             return database.Table<Book>().Where(b => b.BookId == bookId).FirstOrDefault();
+        }
+
+        public static void AddUser(User user)
+        {
+            database.Insert(user);
+        }
+
+        public void DeleteUser(int userId)
+        {
+            database.Delete<User>(userId);
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return database.Table<User>().ToList();
+        }
+        //
+        public void UpdateUser(User user)
+        {
+            database.Update(user);
+        }
+
+        public User GetUserById(int userId)
+        {
+            return database.Table<User>().Where(u => u.UserID == userId).FirstOrDefault();
         }
 
         public List<Book> GetBookByTitle(string title)
@@ -116,7 +138,7 @@ namespace Library_Management_System.Models
             DateTime today = DateTime.Now;
             List<Book> hasOverdueBooks = GetUserOverdueBooks(userID);
             float userBalance = database.ExecuteScalar<float>($"SELECT Balance FROM User WHERE UserID = {userID};");
-            if (userBalance > 0 || hasOverdueBooks != null )
+            if (userBalance > 0 || hasOverdueBooks.Count > 0 )
             {
                 return false;
             }
@@ -130,7 +152,8 @@ namespace Library_Management_System.Models
                 }
                 DateTime dueDate = today.AddDays(daysToBorrow);
                 UserBook userBook = new UserBook(userID, bookID, today, dueDate);
-                database.Insert(userBook);
+                database.Execute($@"INSERT INTO USERBOOK (UserID, BookID, CheckOutDate, DueDate) VALUES ('{userID}', '{bookID}', '{today:yyyy-MM-dd HH:mm:ss}', '{dueDate:yyyy-MM-dd HH:mm:ss}');");
+                //database.Insert(userBook);
                 database.Execute($@"UPDATE Book SET Availability = 'Unavailable' WHERE BookID = '{bookID}';");
                 return true;
             }
@@ -161,29 +184,5 @@ namespace Library_Management_System.Models
             }
             return userValid;
         }
-        //public void AddUser(int userID, string PIN, string phoneNumber, string firstName, string lastName, string email, DateOnly dOB, float balance)
-        //{
-        //    //can we do user here instead of three separate adds?
-        //    //add to user table in db
-        //}
-        //public void RemoveUser(int userID)
-        //{
-        //    //remove user from table in db
-        //}
-        //public void UpdateUser(int userID, string phoneNumber, string firstName, string lastName, string email, float Balance)
-        //{
-        //    //update in db- i think balance would only have to be here if we don't implement the fee table which might be easier to keep track of
-        //}
-        //public List<User> GetAllUsers()
-        //{
-        //    //create/return list of all users from db
-        //    return null;
-        //}
-        //public List<User> SearchUsers(string searchValue)
-        //{
-        //    //search db table and add to/return list
-        //    //first name, last name, userID
-        //    return null;
-        //}
     }
 }

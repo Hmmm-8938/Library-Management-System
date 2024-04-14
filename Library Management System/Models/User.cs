@@ -33,16 +33,17 @@ namespace Library_Management_System.Models
         
         }
       
-        public User(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dOB)
-        {
-            PIN = GeneratePIN(phoneNumber);
-            PhoneNumber = phoneNumber;
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            DOB = dOB;
-            Balance = 0;
-        }
+        //public User(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dOB)
+        //{
+        //    UserID = userID;
+        //    PIN = pin;
+        //    PhoneNumber = phoneNumber;
+        //    FirstName = firstName;
+        //    LastName = lastName;
+        //    Email = email;
+        //    DOB = dOB;
+        //    Balance = 0;
+        //}
         public User(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dOB, float balance)
         {
             UserID = userID;
@@ -51,18 +52,14 @@ namespace Library_Management_System.Models
             FirstName = firstName;
             LastName = lastName;
             Email = email;
-            //DOB = dOB;
-            Balance = 0;
+            DOB = dOB;
+            Balance = balance;
         }
 
-        public string GeneratePIN(string phoneNumber)
-        {
-            string pin = phoneNumber.Substring(phoneNumber.Length - 4);
-            return pin;
-        }
+       
         public override string ToString()
         {
-            return $"Phone Number: {PhoneNumber}, Name: {FirstName} {LastName}, Email: {Email}"; //, DOB: {DOB}
+            return $"Phone Number: {PhoneNumber}, Name: {FirstName} {LastName}, Email: {Email} , DOB: {DOB}";
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Library_Management_System
 
         public DateTime? ReturnDate { get; set; }
 
-        public int? DaysOverdue { get; set; }
+        public float? DaysOverdue { get; set; }
 
         public UserBook() { }
         public UserBook(int userID, int bookID, DateTime checkOutDate, DateTime dueDate)

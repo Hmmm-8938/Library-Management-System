@@ -43,7 +43,7 @@ public partial class CreateLibraryCard : ContentPage
         {
             try
             {
-                throw new MyExceptions("MISSING DATE OF BIRTH NAME");
+                throw new MyExceptions("MISSING DATE OF BIRTH");
             }
 
             catch (MyExceptions ex)
@@ -56,12 +56,12 @@ public partial class CreateLibraryCard : ContentPage
         {
             try
             {
-                throw new MyExceptions("MISSING PHONE NUMBER NAME");
+                throw new MyExceptions("MISSING PHONE NUMBER");
             }
 
             catch (MyExceptions ex)
             {
-                await DisplayAlert("Missing Phone Number Name", "Please enter your Phone Number", "OK");
+                await DisplayAlert("Missing Phone Number", "Please enter your Phone Number", "OK");
             }
         }
 
@@ -78,10 +78,7 @@ public partial class CreateLibraryCard : ContentPage
             }
         }
 
-        //int userID = GetUserID();
-        //string PIN = GetPin();
-        int userID = 1000000;
-		string PIN = "1111";
+        
 		string phoneNumberInput = phoneNumber.Text;
 
         string firstNameInput = firstName.Text;
@@ -94,7 +91,7 @@ public partial class CreateLibraryCard : ContentPage
 
         if (lastNameInput != null)
         {
-            lastNameInput = firstName.Text.ToUpper();
+            lastNameInput = lastName.Text.ToUpper();
         }
         string emailInput = email.Text;
 
@@ -109,7 +106,7 @@ public partial class CreateLibraryCard : ContentPage
             {
                 if (DateTime.TryParseExact(dobIn, "yyyy/MM/dd", culture, DateTimeStyles.None, out d))
                 {
-
+                    int userID = 0;
                     DateTime dobInput = DateTime.ParseExact(dobIn, "yyyy/MM/dd", culture);
 
                     int uniqueID = 0;
@@ -117,20 +114,25 @@ public partial class CreateLibraryCard : ContentPage
                     if (studentButton.IsChecked == true)
                     {
                         uniqueID = 1;
+                        userID = RandomID.CreateUserID(uniqueID);
                     }
 
-                    if (studentButton.IsChecked == true)
+                    else if (instructorButton.IsChecked == true)
                     {
                         uniqueID = 2;
+                        userID = RandomID.CreateUserID(uniqueID);
                     }
 
-                    if (studentButton.IsChecked == true)
+                    else
                     {
-                        uniqueID = 3;
+                        uniqueID = 9;
+                        userID = RandomID.CreateUserID(uniqueID);
                     }
-
-                    //userID = RandomID(uniqueID);
-                    User newUser = new User(userID, PIN, phoneNumberInput, firstNameInput, lastNameInput, emailInput, dobInput);
+                    string pin = RandomID.GeneratePIN(phoneNumberInput);
+                    float balance = 0;
+                    User newUser = new User(userID, pin, phoneNumberInput, firstNameInput, lastNameInput, emailInput, dobInput, balance);
+        
+                    Database_Manager.AddUser(newUser);
 
                     createNotify.Text = "User Created";
 
@@ -139,6 +141,8 @@ public partial class CreateLibraryCard : ContentPage
                     dob.Text = null;
                     phoneNumber.Text = null;
                     email.Text = null;
+
+       
 
                 }
                 else
@@ -159,6 +163,4 @@ public partial class CreateLibraryCard : ContentPage
         
 
     }
-
-
 }

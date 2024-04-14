@@ -4,7 +4,6 @@
              x:Class="Library_Management_System.CreateLibraryCard"
              Title="CreateLibraryCard">
     <VerticalStackLayout>
-        
         <Label
             Text="Register for a Library Card"
             FontSize="24"
