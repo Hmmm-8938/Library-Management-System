@@ -103,27 +103,62 @@ public partial class CreateLibraryCard : ContentPage
         CultureInfo culture = new CultureInfo("en-US");
         string dobIn = dob.Text;
         DateTime d;
-        if (dob.Text != null)
+        if (firstNameInput != null  && lastNameInput != null && emailInput != null && phoneNumberInput != null)
         {
-            if (DateTime.TryParseExact(dobIn, "yyyy/MM/dd", culture, DateTimeStyles.None, out d))
+            if (dob.Text != null)
             {
-                DateTime dobInput = DateTime.ParseExact(dobIn, "yyyy/MM/dd", culture);
-                User newUser = new User(userID, PIN, phoneNumberInput, firstNameInput, lastNameInput, emailInput, dobInput);
-            }
-            else
-            {
-                try
+                if (DateTime.TryParseExact(dobIn, "yyyy/MM/dd", culture, DateTimeStyles.None, out d))
                 {
-                    throw new MyExceptions("INCORRECT DOB FORMAT");
-                }
-                catch (MyExceptions ex)
-                {
-                    await DisplayAlert("Incorrect Date of Birth Format", "Please enter your Date of Birth in the format (yyyy/mm/dd)", "OK");
-                }
 
+                    DateTime dobInput = DateTime.ParseExact(dobIn, "yyyy/MM/dd", culture);
+
+                    int uniqueID = 0;
+
+                    if (studentButton.IsChecked == true)
+                    {
+                        uniqueID = 1;
+                    }
+
+                    if (studentButton.IsChecked == true)
+                    {
+                        uniqueID = 2;
+                    }
+
+                    if (studentButton.IsChecked == true)
+                    {
+                        uniqueID = 3;
+                    }
+
+                    //userID = RandomID(uniqueID);
+                    User newUser = new User(userID, PIN, phoneNumberInput, firstNameInput, lastNameInput, emailInput, dobInput);
+
+                    createNotify.Text = "User Created";
+
+                    firstName.Text = null;
+                    lastName.Text = null;
+                    dob.Text = null;
+                    phoneNumber.Text = null;
+                    email.Text = null;
+
+                }
+                else
+                {
+                    try
+                    {
+                        throw new MyExceptions("INCORRECT DOB FORMAT");
+                    }
+                    catch (MyExceptions ex)
+                    {
+                        await DisplayAlert("Incorrect Date of Birth Format", "Please enter your Date of Birth in the format (yyyy/mm/dd)", "OK");
+                    }
+
+                }
             }
         }
         
         
+
     }
+
+
 }
