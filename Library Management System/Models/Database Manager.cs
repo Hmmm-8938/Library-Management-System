@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using Windows.System;
 
 namespace Library_Management_System.Models
 {
@@ -89,12 +90,13 @@ namespace Library_Management_System.Models
             {
                 DateTime returnDate = DateTime.Now;
                 database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND(julianday('{returnDate:yyyy-MM-dd HH:mm:ss}') - julianday(DueDate, 'yyyy-MM-dd HH:mm:ss')) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
-                int daysOverdue = database.ExecuteScalar<int>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate:yyyy-MM-dd HH:mm:ss};");
+                float daysOverdue = database.ExecuteScalar<float>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate:yyyy-MM-dd HH:mm:ss};");
                 if (daysOverdue > 0)
                 {
                     int userID = database.ExecuteScalar<int>($"SELECT UserID FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate:yyyy-MM-dd HH:mm:ss};");
                     AddUserFees(userID, daysOverdue);
                 }
+                database.Execute($@"UPDATE Book SET Availability = 'Available' WHERE BookID = '{bookID}';");
                 return true;
             }
             else
@@ -102,8 +104,10 @@ namespace Library_Management_System.Models
                 return false;
             }
         }
-        public static void AddUserFees(int userID, int daysOverdue)
+        public static void AddUserFees(int userID, float daysOverdue)
         {
+            float fee = daysOverdue * ((float)0.50);
+            database.Execute($@"UPDATE User SET Balance = '{fee}' WHERE UserID = '{userID}';");
 
         }
         public static bool CheckOutBook(int userID, int bookID)
@@ -126,30 +130,25 @@ namespace Library_Management_System.Models
                 DateTime dueDate = today.AddDays(daysToBorrow);
                 UserBook userBook = new UserBook(userID, bookID, today, dueDate);
                 database.Insert(userBook);
-                //ChangeBookStatus(bookID);
+                database.Execute($@"UPDATE Book SET Availability = 'Unavailable' WHERE BookID = '{bookID}';");
                 return true;
             }
         }
         public static List<Book> GetCheckedOutBooks()
         {
-            //search db and add/return list of books in bridge table
-            //join to other tables in sql query to get info on book and user?
-            return null;
+            List<Book> checkedOutBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using (BookID) WHERE ReturnDate IS NULL;");
+            //did we need to return user info too?
+            return checkedOutBooks;
         }
         public static List<Book> GetUserCheckedOutBooks(int userID)
         {
-            //return all books in table with matching userID
-            return null;
+            List<Book> checkedOutBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using (BookID) JOIN User Using(UserID) WHERE UserID = '{userID}' AND ReturnDate IS NULL;");
+            return checkedOutBooks;
         }
         public static List<Book> GetUserOverdueBooks(int userID)
         {
-            //return all overdue books in table with matching userID
-            //if (hasCheckedOutBooks == true)
-            //{
-            //    DateTime dueDate = database.ExecuteScalar<DateTime>($"SELECT DueDate FROM UserBook WHERE BookID = {bookID} AND ReturnDate IS NULL;");
-            //    daysOverdue = (today - dueDate).TotalDays;
-            //}
-            return null;
+            List<Book> overdueBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE UserID = '{userID}' AND ReturnDate IS NULL AND (julianday('now') - julianday('DueDate') > 0);");
+            return overdueBooks;
         }
 
         //public void AddUser(int userID, string PIN, string phoneNumber, string firstName, string lastName, string email, DateOnly dOB, float balance)

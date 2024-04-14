@@ -16,13 +16,15 @@ namespace Library_Management_System.Models
         [Required]
         public string Title { get; set; }
         [Required]
-        public string author { get; set; }
+        public string Author { get; set; }
         [Required]
-        public string description { get; set; }
+        public string Description { get; set; }
         [Required]
-        public int isbn { get; set; }
+        public int Isbn { get; set; }
         [Required]
-        public string cover { get; set; }
+        public string Cover { get; set; }
+        [Required]
+        public string Availability { get; set; }
 
         public Book()
         {
