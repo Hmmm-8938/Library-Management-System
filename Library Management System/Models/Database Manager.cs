@@ -112,11 +112,11 @@ namespace Library_Management_System.Models
             if(RowExists(bookID) == true)
             {
                 DateTime returnDate = DateTime.Now;
-                database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND(julianday('{returnDate:yyyy-MM-dd HH:mm:ss}') - julianday(DueDate, 'yyyy-MM-dd HH:mm:ss')) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
-                float daysOverdue = database.ExecuteScalar<float>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate:yyyy-MM-dd HH:mm:ss};");
+                database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND(julianday('{returnDate:yyyy-MM-dd HH:mm:ss}') - julianday(DueDate)) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
+                int daysOverdue = database.ExecuteScalar<int>($"SELECT DaysOverdue FROM UserBook WHERE BookID = {bookID} AND ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}';");
                 if (daysOverdue > 0)
                 {
-                    int userID = database.ExecuteScalar<int>($"SELECT UserID FROM UserBook WHERE BookID = {bookID} AND ReturnDate = {returnDate:yyyy-MM-dd HH:mm:ss};");
+                    int userID = database.ExecuteScalar<int>($"SELECT UserID FROM UserBook WHERE BookID = {bookID} AND ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}';");
                     AddUserFees(userID, daysOverdue);
                 }
                 database.Execute($@"UPDATE Book SET Availability = 'Available' WHERE BookID = '{bookID}';");
