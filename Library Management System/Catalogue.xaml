@@ -3,847 +3,849 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Library_Management_System.Catalogue"
              Title="Catalogue">
-    <VerticalStackLayout>
-        <!--Top bar of application.-->
-        <Grid>
-            <!--Defining the columns for the table grid at top of program-->
-            <Grid.ColumnDefinitions>
-                <!--The column for the Calgary Public Library Logo and Search Text-->
-                <ColumnDefinition
-                    Width="Auto"
-                />
-                <!-- The column for the Spacer between the Calgary Public Library logo and the Log-In Button-->
-                <ColumnDefinition
-                    Width="*"
-                />
-                <!-- The column for the Log-In Button-->
-                <ColumnDefinition
-                    Width="Auto"
-                />
-            </Grid.ColumnDefinitions>
+    <ScrollView Orientation="Vertical">
+        <VerticalStackLayout>
+            <!--Top bar of application.-->
+            <Grid>
+                <!--Defining the columns for the table grid at top of program-->
+                <Grid.ColumnDefinitions>
+                    <!--The column for the Calgary Public Library Logo and Search Text-->
+                    <ColumnDefinition
+                        Width="Auto"
+                    />
+                    <!-- The column for the Spacer between the Calgary Public Library logo and the Log-In Button-->
+                    <ColumnDefinition
+                        Width="*"
+                    />
+                    <!-- The column for the Log-In Button-->
+                    <ColumnDefinition
+                        Width="Auto"
+                    />
+                </Grid.ColumnDefinitions>
 
-            <!--Defining the rows for the table grid at top of program-->
-            <Grid.RowDefinitions>
-                <!-- The row for the top bar which has the Calgary Public Library Logo, and Log-In Button.-->
-                <RowDefinition
-                    Height="50"
-                ></RowDefinition>
-                <!-- A spacer row-->
-                <RowDefinition
-                    Height="10"
-                ></RowDefinition>
-                <!-- The row for the search label, entry box, and search button.-->
-                <RowDefinition
-                    Height="50"
-                ></RowDefinition>
-            </Grid.RowDefinitions>
+                <!--Defining the rows for the table grid at top of program-->
+                <Grid.RowDefinitions>
+                    <!-- The row for the top bar which has the Calgary Public Library Logo, and Log-In Button.-->
+                    <RowDefinition
+                        Height="50"
+                    ></RowDefinition>
+                    <!-- A spacer row-->
+                    <RowDefinition
+                        Height="10"
+                    ></RowDefinition>
+                    <!-- The row for the search label, entry box, and search button.-->
+                    <RowDefinition
+                        Height="50"
+                    ></RowDefinition>
+                </Grid.RowDefinitions>
 
-            <!--Populating the first column first row of the grid-->
-            <Image
-                Grid.Column="0"
-                Grid.Row="0"
-                Source="cpl_logo.png"
-                WidthRequest="150"
-            ></Image>
+                <!--Populating the first column first row of the grid-->
+                <Image
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Source="cpl_logo.png"
+                    WidthRequest="150"
+                ></Image>
 
-            <!--Populating the second column first row of the grid-->
-            <BoxView
-                Grid.Column="1"
-                Grid.Row="0"
-                WidthRequest="0"
-                HeightRequest="0"
-            ></BoxView>
+                <!--Populating the second column first row of the grid-->
+                <BoxView
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    WidthRequest="0"
+                    HeightRequest="0"
+                ></BoxView>
 
-            <!--Populating the third column first row of the grid-->
-            <Button
-                x:Name="loginbtn"
-                Grid.Column="2"
-                Grid.Row="0"
-                WidthRequest="100"
-                HeightRequest="50"
-                BackgroundColor="DarkCyan"
-                Margin="10,0,10,0"
-                Text="Log-In"
-                Clicked="Login_Clicked"
+                <!--Populating the third column first row of the grid-->
+                <Button
+                    x:Name="loginbtn"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    WidthRequest="100"
+                    HeightRequest="50"
+                    BackgroundColor="DarkCyan"
+                    Margin="10,0,10,0"
+                    Text="Log-In"
+                    Clicked="Login_Clicked"
                 
-            ></Button>
+                ></Button>
 
-            <!--Populating the first column second row of the grid-->
-            <Label
-                Grid.Column="0"
-                Grid.Row="2"
-                Text="Search"
-                WidthRequest="150"
-                FontAttributes="Bold"
-                FontSize="Large"
-                HorizontalTextAlignment="Center"
-            ></Label>
+                <!--Populating the first column second row of the grid-->
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Text="Search"
+                    WidthRequest="150"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                ></Label>
 
-            <!--Populating the second column second row of the grid-->
-            <Entry
-                Grid.Column="1"
-                Grid.Row="2"
-                Placeholder="Search our catalogue..."
-            ></Entry>
+                <!--Populating the second column second row of the grid-->
+                <Entry
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Placeholder="Search our catalogue..."
+                ></Entry>
 
-            <!--Populating the third column third row of the grid-->
-            <Button
-                Grid.Column="2"
-                Grid.Row="2"
-                WidthRequest="100"
-                HeightRequest="50"
-                BackgroundColor="DarkCyan"
-                Margin="10,0,10,0"
-                Text="Search"
-                Clicked="Button_Clicked"
-            ></Button>
-        </Grid>
-        <!--Closing the top bar of the application.-->
-        <!--The Bar of Recently Reviewed and Recommended Books-->
-        <ScrollView Orientation="Vertical">
-            <VerticalStackLayout>
-                <Label
-                Text="Recommended by our Librarian Ben"
-                FontAttributes="Bold"
-                Margin="30,25,0,0"
-                FontSize="Medium"
-                ></Label>
-                <ScrollView Orientation="Horizontal">
-                    <HorizontalStackLayout>
-                        <!--Book #1-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book1Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book1Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book1Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book1ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #1-->
-                        <!--Book #2-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book2Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book2Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book2Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book2ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #2-->
-                        <!--Book #3-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book3Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book3Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book3Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book3ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #3-->
-                        <!--Book #4-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book4Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book4Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book4Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book4ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #4-->
-                        <!--Book #5-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book5Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book5Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book5Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book5ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #5-->
-                        <!--Book #6-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book6Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book6Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book6Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book6ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #6-->
-                        <!--Book #7-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book7Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book7Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book7Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book7ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #7-->
-                    </HorizontalStackLayout>
-                </ScrollView>
-                <Label
-                Text="Recommended by our Librarian Shannon"
-                FontAttributes="Bold"
-                Margin="30,25,0,0"
-                FontSize="Medium"
-                ></Label>
-                <ScrollView Orientation="Horizontal">
-                    <HorizontalStackLayout>
-                        <!--Book #1-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book21Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book21Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book21Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book21ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #1-->
-                        <!--Book #2-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book22Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book22Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book22Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book22ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #2-->
-                        <!--Book #3-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book23Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book23Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book23Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book23ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #3-->
-                        <!--Book #4-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book24Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book24Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book24Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book24ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #4-->
-                        <!--Book #5-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book25Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book25Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book25Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book25ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #5-->
-                        <!--Book #6-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book26Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book26Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book26Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book26ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #6-->
-                        <!--Book #7-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book27Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book27Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book27Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book27ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #7-->
-                    </HorizontalStackLayout>
-                </ScrollView>
-                <Label
-                Text="Recommended by our Librarian Jaxson"
-                FontAttributes="Bold"
-                Margin="30,25,0,0"
-                FontSize="Medium"
-                ></Label>
-                <ScrollView Orientation="Horizontal">
-                    <HorizontalStackLayout>
-                        <!--Book #1-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book31Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book31Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book31Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book31ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #1-->
-                        <!--Book #2-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book32Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book32Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book32Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book32ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #2-->
-                        <!--Book #3-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book33Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book33Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book33Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book33ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #3-->
-                        <!--Book #4-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book34Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book34Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book34Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book34ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #4-->
-                        <!--Book #5-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book35Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book35Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book35Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book35ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #5-->
-                        <!--Book #6-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book36Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book36Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book36Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book36ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #6-->
-                        <!--Book #7-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book37Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book37Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book37Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book37ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #7-->
-                    </HorizontalStackLayout>
-                </ScrollView>
-                <Label
-                Text="Recommended by our Librarian Josh"
-                FontAttributes="Bold"
-                Margin="30,25,0,0"
-                FontSize="Medium"
-                ></Label>
-                <ScrollView Orientation="Horizontal">
-                    <HorizontalStackLayout>
-                        <!--Book #1-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book41Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book41Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book41Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book41ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #1-->
-                        <!--Book #2-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book42Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book42Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book42Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book42ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #2-->
-                        <!--Book #3-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book43Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book43Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book43Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book43ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #3-->
-                        <!--Book #4-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book44Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book44Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book44Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book44ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #4-->
-                        <!--Book #5-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book45Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book45Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book45Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book45ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #5-->
-                        <!--Book #6-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book46Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book46Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book46Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book46ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #6-->
-                        <!--Book #7-->
-                        <VerticalStackLayout
-                        WidthRequest="200"
-                        Margin="30,25,0,0"
-                        >
-                            <Image
-                                x:Name="Book47Image"
-                            ></Image>
-                            <Label
-                                x:Name="Book47Title"
-                            ></Label>
-                            <Label
-                                x:Name="Book47Author"
-                            ></Label>
-                            <Label
-                                x:Name="Book47ISBN"
-                            ></Label>
-                            <Button
-                                Text="Place Hold"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                BackgroundColor="DarkGreen"
-                            ></Button>
-                        </VerticalStackLayout>
-                        <!--Closing Book #7-->
-                    </HorizontalStackLayout>
-                </ScrollView>
-            </VerticalStackLayout>
-        </ScrollView>
-    </VerticalStackLayout>
+                <!--Populating the third column third row of the grid-->
+                <Button
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    WidthRequest="100"
+                    HeightRequest="50"
+                    BackgroundColor="DarkCyan"
+                    Margin="10,0,10,0"
+                    Text="Search"
+                    Clicked="Button_Clicked"
+                ></Button>
+            </Grid>
+            <!--Closing the top bar of the application.-->
+            <!--The Bar of Recently Reviewed and Recommended Books-->
+            <ScrollView Orientation="Vertical">
+                <VerticalStackLayout>
+                    <Label
+                    Text="Recommended by our Librarian Ben"
+                    FontAttributes="Bold"
+                    Margin="30,25,0,0"
+                    FontSize="Medium"
+                    ></Label>
+                    <ScrollView Orientation="Horizontal">
+                        <HorizontalStackLayout>
+                            <!--Book #1-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book1Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book1Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book1Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book1ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #1-->
+                            <!--Book #2-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book2Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book2Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book2Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book2ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #2-->
+                            <!--Book #3-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book3Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book3Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book3Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book3ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #3-->
+                            <!--Book #4-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book4Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book4Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book4Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book4ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #4-->
+                            <!--Book #5-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book5Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book5Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book5Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book5ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #5-->
+                            <!--Book #6-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book6Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book6Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book6Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book6ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #6-->
+                            <!--Book #7-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book7Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book7Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book7Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book7ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #7-->
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                    <Label
+                    Text="Recommended by our Librarian Shannon"
+                    FontAttributes="Bold"
+                    Margin="30,25,0,0"
+                    FontSize="Medium"
+                    ></Label>
+                    <ScrollView Orientation="Horizontal">
+                        <HorizontalStackLayout>
+                            <!--Book #1-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book21Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book21Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book21Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book21ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #1-->
+                            <!--Book #2-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book22Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book22Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book22Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book22ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #2-->
+                            <!--Book #3-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book23Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book23Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book23Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book23ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #3-->
+                            <!--Book #4-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book24Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book24Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book24Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book24ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #4-->
+                            <!--Book #5-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book25Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book25Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book25Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book25ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #5-->
+                            <!--Book #6-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book26Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book26Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book26Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book26ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #6-->
+                            <!--Book #7-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book27Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book27Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book27Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book27ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #7-->
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                    <Label
+                    Text="Recommended by our Librarian Jaxson"
+                    FontAttributes="Bold"
+                    Margin="30,25,0,0"
+                    FontSize="Medium"
+                    ></Label>
+                    <ScrollView Orientation="Horizontal">
+                        <HorizontalStackLayout>
+                            <!--Book #1-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book31Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book31Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book31Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book31ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #1-->
+                            <!--Book #2-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book32Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book32Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book32Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book32ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #2-->
+                            <!--Book #3-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book33Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book33Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book33Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book33ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #3-->
+                            <!--Book #4-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book34Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book34Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book34Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book34ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #4-->
+                            <!--Book #5-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book35Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book35Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book35Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book35ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #5-->
+                            <!--Book #6-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book36Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book36Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book36Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book36ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #6-->
+                            <!--Book #7-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book37Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book37Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book37Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book37ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #7-->
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                    <Label
+                    Text="Recommended by our Librarian Josh"
+                    FontAttributes="Bold"
+                    Margin="30,25,0,0"
+                    FontSize="Medium"
+                    ></Label>
+                    <ScrollView Orientation="Horizontal">
+                        <HorizontalStackLayout>
+                            <!--Book #1-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book41Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book41Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book41Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book41ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #1-->
+                            <!--Book #2-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book42Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book42Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book42Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book42ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #2-->
+                            <!--Book #3-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book43Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book43Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book43Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book43ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #3-->
+                            <!--Book #4-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book44Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book44Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book44Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book44ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #4-->
+                            <!--Book #5-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book45Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book45Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book45Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book45ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #5-->
+                            <!--Book #6-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book46Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book46Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book46Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book46ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #6-->
+                            <!--Book #7-->
+                            <VerticalStackLayout
+                            WidthRequest="200"
+                            Margin="30,25,0,0"
+                            >
+                                <Image
+                                    x:Name="Book47Image"
+                                ></Image>
+                                <Label
+                                    x:Name="Book47Title"
+                                ></Label>
+                                <Label
+                                    x:Name="Book47Author"
+                                ></Label>
+                                <Label
+                                    x:Name="Book47ISBN"
+                                ></Label>
+                                <Button
+                                    Text="Place Hold"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="DarkGreen"
+                                ></Button>
+                            </VerticalStackLayout>
+                            <!--Closing Book #7-->
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                </VerticalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
 

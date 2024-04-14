@@ -31,6 +31,16 @@ namespace Library_Management_System.Models
 
         }
 
+        public Book(string title, string author, string description, int isbn, string cover, string availability)
+        {
+            Title = title;
+            Author = author;
+            Description = description;
+            Isbn = isbn;
+            Cover = cover;
+            Availability = availability;
+        }
+
 
     }
 }

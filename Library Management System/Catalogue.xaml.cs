@@ -137,8 +137,8 @@ public partial class Catalogue : ContentPage
         Shell.Current.GoToAsync(nameof(Login));
     }
 
-    public void updateLogin(string login)
+    public static void updateLogin(string login)
     {
-        loginbtn.Text = $"{login}";
+        //loginbtn.Text = $"{login}";
     }
 }

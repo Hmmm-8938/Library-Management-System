@@ -9,7 +9,7 @@ public partial class Login : ContentPage
 		InitializeComponent();
 	}
 
-    private void LoginBtn2_Clicked(object sender, EventArgs e)
+    private void LoginBtn_Clicked(object sender, EventArgs e)
     {
         if (AccessManager.ActiveUser == null) 
         {
