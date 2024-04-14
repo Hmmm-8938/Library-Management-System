@@ -140,9 +140,12 @@ public partial class Catalogue : ContentPage
         }
 
     }
-    private void Button_Clicked(object sender, EventArgs e)
+    private void Search_Clicked(object sender, EventArgs e)
     {
-        
+        //string searchText = searchEntry.Text;
+        //List<Book> books = Database_Manager.GetBookByTitle(searchText);
+        Shell.Current.GoToAsync(nameof(CatalogueSearchResults));
+
     }
 
     private void Login_Clicked(object sender, EventArgs e)
@@ -151,6 +154,7 @@ public partial class Catalogue : ContentPage
         {
             AccessManager.Logout();
             loginbtn.Text = "Login";
+            return;
         }
         Shell.Current.GoToAsync(nameof(Login));
     }
