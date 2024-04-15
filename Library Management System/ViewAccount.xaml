@@ -6,6 +6,7 @@
     <HorizontalStackLayout>
         <VerticalStackLayout HorizontalOptions="Start">
             <Label
+                x:Name="accountName"
                 Text="Account: "
                 FontSize="30"
                 FontAttributes="Bold"
@@ -13,6 +14,7 @@
                 Margin="0,10,0,0"/>
 
             <Label
+                x:Name="accountCard"
                 Text="Library Card #: "
                 FontSize="30"
                 FontAttributes="Bold"
@@ -20,6 +22,7 @@
                 Margin="0,10,0,0"/>
 
             <Label
+                x:Name="accountBooksCO"
                 Text="Books Checked Out: "
                 FontSize="30"
                 FontAttributes="Bold"
@@ -27,6 +30,7 @@
                 Margin="0,10,0,0"/>
 
             <Label
+                x:Name="accountBooksOD"
                 Text="Books Overdue: "
                 FontSize="30"
                 FontAttributes="Bold"
