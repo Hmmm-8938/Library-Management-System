@@ -157,16 +157,4 @@ public partial class Catalogue : ContentPage
         }
         Shell.Current.GoToAsync(nameof(Login));
     }
-
-    public void updateLogin()
-    {
-        if(AccessManager.ActiveUser != null)
-        {
-            loginbtn.Text = "Logout";
-        }
-        else
-        {
-            loginbtn.Text = "Login";
-        }
-    }
 }
