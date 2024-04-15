@@ -30,7 +30,7 @@ namespace Library_Management_System.Models
                 string UserID = ID.ToString();
                 if (UserID[0] == '9')
                 {
-                   //Shell.CLibCard.flyoutItemIsVisible = "True";
+                    
                 }
             }
             return valid;
@@ -40,5 +40,6 @@ namespace Library_Management_System.Models
         {
             activeUser = null;
         }
+
     }
 }

@@ -29,12 +29,6 @@
         />
 
     <ShellContent
-        Title="CatalogueSearchResults"
-        ContentTemplate="{DataTemplate local:CatalogueSearchResults}"
-        Route="CatalogueSearchResults"
-        FlyoutItem.IsVisible="False"/>
-
-    <ShellContent
         Title="CreateLibraryCard"
         ContentTemplate="{DataTemplate local:CreateLibraryCard}"
         Route="CreateLibraryCard"

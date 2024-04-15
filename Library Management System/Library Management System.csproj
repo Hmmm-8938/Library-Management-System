@@ -88,9 +88,6 @@
 	  <MauiXaml Update="Catalogue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="CatalogueSearchResults.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="CheckInBooks.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

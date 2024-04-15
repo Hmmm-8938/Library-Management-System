@@ -79,9 +79,20 @@
                     FontSize="Large"
                     HorizontalTextAlignment="Center"
                 ></Label>
-
+                <Button
+                    x:Name="back"
+                    Grid.Column="1"
+                    HorizontalOptions="Start"
+                    BackgroundColor="White"
+                    TextColor="Blue"
+                    Grid.Row="0"
+                    Text="Back"
+                    IsVisible="false"
+                    Clicked="back_Clicked"
+                     />
                 <!--Populating the second column second row of the grid-->
                 <Entry
+                    x:Name="searchEntry"
                     Grid.Column="1"
                     Grid.Row="2"
                     Placeholder="Search our catalogue..."
@@ -102,8 +113,8 @@
             </Grid>
             <!--Closing the top bar of the application.-->
             <!--The Bar of Recently Reviewed and Recommended Books-->
-            <ScrollView Orientation="Vertical">
-                <VerticalStackLayout>
+            <ScrollView Orientation="Vertical" IsVisible="true" x:Name="defaultPage">
+                <VerticalStackLayout x:Name="pageContent">
                     <Label
                     Text="Recommended by our Librarian Ben"
                     FontAttributes="Bold"
@@ -846,6 +857,43 @@
                     </ScrollView>
                 </VerticalStackLayout>
             </ScrollView>
+            
+                <ListView x:Name="listView" IsVisible="false">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <VerticalStackLayout
+                                    WidthRequest="200"
+                                    Margin="30,25,0,0"
+                                    >
+                                    <Image
+                                        Source="{Binding Cover}"
+                                    ></Image>
+                                    <Label
+                                        Text="{Binding Title}"
+                                    ></Label>
+                                    <Label
+                                        Text="{Binding Author}"
+                                    ></Label>
+                                    <Label
+                                        Text="{Binding Isbn}"
+                                    ></Label>
+                                    <Label
+                                        Text="{Binding Availability}"
+                                    ></Label>
+                                <Button
+                                        Text="Place Hold"
+                                        FontSize="Medium"
+                                        FontAttributes="Bold"
+                                        BackgroundColor="DarkGreen"
+                                    ></Button>
+                                </VerticalStackLayout>
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

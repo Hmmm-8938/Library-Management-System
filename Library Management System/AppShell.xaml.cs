@@ -6,8 +6,6 @@
         {
             InitializeComponent();
             Routing.RegisterRoute("Catalogue", typeof(Catalogue));
-            Routing.RegisterRoute("CatalogueSearchResults", typeof(CatalogueSearchResults));
-            Routing.RegisterRoute("Catalogue", typeof(Catalogue));
             Routing.RegisterRoute("CheckInBooks", typeof(CheckInBooks));
             Routing.RegisterRoute("CheckOutBooks", typeof(CheckOutBooks));
             Routing.RegisterRoute("CreateLibraryCard", typeof(CreateLibraryCard));

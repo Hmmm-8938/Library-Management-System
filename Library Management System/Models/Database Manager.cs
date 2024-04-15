@@ -73,7 +73,7 @@ namespace Library_Management_System.Models
 
         public static List<Book> GetBookByTitle(string title)
         {
-            return database.Query<Book>($"SELECT * FROM Book WHERE title LIKE(%{title}%)");
+            return database.Query<Book>($@"SELECT * FROM Book WHERE title LIKE '%' || '{title}' || '%'");
         }
         public static bool RowExists(int bookID)
         {
