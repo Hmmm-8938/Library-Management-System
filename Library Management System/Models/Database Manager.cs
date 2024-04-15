@@ -61,7 +61,7 @@ namespace Library_Management_System.Models
             return database.Table<User>().ToList();
         }
         //
-        public void UpdateUser(User user)
+        public static void UpdateUser(User user)
         {
             database.Update(user);
         }

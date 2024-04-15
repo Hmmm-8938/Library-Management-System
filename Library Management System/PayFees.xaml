@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Library_Management_System.PayFees"
+             Title="NewPage1">
+    <VerticalStackLayout>
+        <Label 
+            Text="Pay Library Fees"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"
+            Margin="20"/>
+        <Label Text="Enter User ID: "
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry x:Name="userEntry"
+               Placeholder="12345" 
+               MaximumWidthRequest="500"
+               Margin="15"/>
+        <Button x:Name="SearchBalance"
+                Text="Submit"
+                WidthRequest="100"
+                HeightRequest="50"
+                BackgroundColor="DarkCyan"
+                Margin="10" 
+                Clicked="SearchBalance_Clicked"
+                IsVisible="true"/>
+        <Label x:Name="displayBalance"
+               Text=""
+               FontSize="Medium" 
+               Margin="20"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"/>
+        <Button x:Name="ClearFees"
+                Text="Clear Fees"
+                WidthRequest="100"
+                HeightRequest="50"
+                BackgroundColor="DarkCyan"
+                Margin="10" 
+                Clicked="ClearFees_Clicked"
+                IsVisible="false"/>
+        <Button x:Name="Reset"
+                Text="Pay New Fee"
+                WidthRequest="150"
+                HeightRequest="50"
+                BackgroundColor="DarkCyan"
+                Margin="10" 
+                Clicked="Reset_Clicked"
+                IsVisible="false"/>
+    </VerticalStackLayout>
+</ContentPage>

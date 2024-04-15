@@ -9,6 +9,7 @@
             Routing.RegisterRoute("CheckInBooks", typeof(CheckInBooks));
             Routing.RegisterRoute("CheckOutBooks", typeof(CheckOutBooks));
             Routing.RegisterRoute("CreateLibraryCard", typeof(CreateLibraryCard));
+            Routing.RegisterRoute("PayFees", typeof(PayFees));
             Routing.RegisterRoute("BooksCheckedOut", typeof(BooksCheckedOut));
             Routing.RegisterRoute("BooksAvailable", typeof(BooksAvailable));
             Routing.RegisterRoute("BooksOnHold", typeof(BooksOnHold));

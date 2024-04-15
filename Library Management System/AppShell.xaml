@@ -50,6 +50,12 @@
                 Route="CheckOutBooks" />
         </Tab>
     </FlyoutItem>
+    <ShellContent
+        Title="Pay Fees"
+        ContentTemplate="{DataTemplate local:PayFees}"
+        Route="PayFees"
+        Icon="pay_fees_icon.png"
+        x:Name="PayFees"/>
     <FlyoutItem Title="LibrarianFunctions" Icon="librarian_functions_icon.png">
         <Tab Title="Checked Out Books">
             <ShellContent
