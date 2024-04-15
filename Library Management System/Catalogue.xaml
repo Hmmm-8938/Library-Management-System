@@ -112,7 +112,7 @@
                 ></Button>
             </Grid>
             <!--Closing the top bar of the application.-->
-            <!--The Bar of Recently Reviewed and Recommended Books-->
+            <!--The Bar of Recently Reviewed and Recommended Books--><!--
             <ScrollView Orientation="Vertical" IsVisible="true" x:Name="defaultPage">
                 <VerticalStackLayout x:Name="pageContent">
                     <Label
@@ -123,7 +123,7 @@
                     ></Label>
                     <ScrollView Orientation="Horizontal">
                         <HorizontalStackLayout>
-                            <!--Book #1-->
+                            --><!--Book #1--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -147,8 +147,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #1-->
-                            <!--Book #2-->
+                            --><!--Closing Book #1-->
+                            <!--Book #2--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -172,8 +172,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #2-->
-                            <!--Book #3-->
+                            --><!--Closing Book #2-->
+                            <!--Book #3--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -197,8 +197,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #3-->
-                            <!--Book #4-->
+                            --><!--Closing Book #3-->
+                            <!--Book #4--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -222,8 +222,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #4-->
-                            <!--Book #5-->
+                            --><!--Closing Book #4-->
+                            <!--Book #5--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -247,8 +247,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #5-->
-                            <!--Book #6-->
+                            --><!--Closing Book #5-->
+                            <!--Book #6--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -272,8 +272,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #6-->
-                            <!--Book #7-->
+                            --><!--Closing Book #6-->
+                            <!--Book #7--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -297,7 +297,7 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #7-->
+                            --><!--Closing Book #7--><!--
                         </HorizontalStackLayout>
                     </ScrollView>
                     <Label
@@ -308,7 +308,7 @@
                     ></Label>
                     <ScrollView Orientation="Horizontal">
                         <HorizontalStackLayout>
-                            <!--Book #1-->
+                            --><!--Book #1--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -332,8 +332,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #1-->
-                            <!--Book #2-->
+                            --><!--Closing Book #1-->
+                            <!--Book #2--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -357,8 +357,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #2-->
-                            <!--Book #3-->
+                            --><!--Closing Book #2-->
+                            <!--Book #3--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -382,8 +382,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #3-->
-                            <!--Book #4-->
+                            --><!--Closing Book #3-->
+                            <!--Book #4--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -407,8 +407,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #4-->
-                            <!--Book #5-->
+                            --><!--Closing Book #4-->
+                            <!--Book #5--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -432,8 +432,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #5-->
-                            <!--Book #6-->
+                            --><!--Closing Book #5-->
+                            <!--Book #6--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -457,8 +457,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #6-->
-                            <!--Book #7-->
+                            --><!--Closing Book #6-->
+                            <!--Book #7--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -482,7 +482,7 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #7-->
+                            --><!--Closing Book #7--><!--
                         </HorizontalStackLayout>
                     </ScrollView>
                     <Label
@@ -493,7 +493,7 @@
                     ></Label>
                     <ScrollView Orientation="Horizontal">
                         <HorizontalStackLayout>
-                            <!--Book #1-->
+                            --><!--Book #1--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -517,8 +517,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #1-->
-                            <!--Book #2-->
+                            --><!--Closing Book #1-->
+                            <!--Book #2--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -542,8 +542,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #2-->
-                            <!--Book #3-->
+                            --><!--Closing Book #2-->
+                            <!--Book #3--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -567,8 +567,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #3-->
-                            <!--Book #4-->
+                            --><!--Closing Book #3-->
+                            <!--Book #4--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -592,8 +592,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #4-->
-                            <!--Book #5-->
+                            --><!--Closing Book #4-->
+                            <!--Book #5--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -617,8 +617,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #5-->
-                            <!--Book #6-->
+                            --><!--Closing Book #5-->
+                            <!--Book #6--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -642,8 +642,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #6-->
-                            <!--Book #7-->
+                            --><!--Closing Book #6-->
+                            <!--Book #7--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -667,7 +667,7 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #7-->
+                            --><!--Closing Book #7--><!--
                         </HorizontalStackLayout>
                     </ScrollView>
                     <Label
@@ -678,7 +678,7 @@
                     ></Label>
                     <ScrollView Orientation="Horizontal">
                         <HorizontalStackLayout>
-                            <!--Book #1-->
+                            --><!--Book #1--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -702,8 +702,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #1-->
-                            <!--Book #2-->
+                            --><!--Closing Book #1-->
+                            <!--Book #2--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -727,8 +727,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #2-->
-                            <!--Book #3-->
+                            --><!--Closing Book #2-->
+                            <!--Book #3--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -752,8 +752,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #3-->
-                            <!--Book #4-->
+                            --><!--Closing Book #3-->
+                            <!--Book #4--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -777,8 +777,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #4-->
-                            <!--Book #5-->
+                            --><!--Closing Book #4-->
+                            <!--Book #5--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -802,8 +802,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #5-->
-                            <!--Book #6-->
+                            --><!--Closing Book #5-->
+                            <!--Book #6--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -827,8 +827,8 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #6-->
-                            <!--Book #7-->
+                            --><!--Closing Book #6-->
+                            <!--Book #7--><!--
                             <VerticalStackLayout
                             WidthRequest="200"
                             Margin="30,25,0,0"
@@ -852,13 +852,48 @@
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </VerticalStackLayout>
-                            <!--Closing Book #7-->
+                            --><!--Closing Book #7--><!--
                         </HorizontalStackLayout>
                     </ScrollView>
                 </VerticalStackLayout>
-            </ScrollView>
+            </ScrollView>-->
             
-                <ListView x:Name="listView" IsVisible="false">
+            <ListView x:Name="defaultPage" IsVisible="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout
+                    WidthRequest="200"
+                    Margin="30,25,0,0"
+                    >
+                                <Image
+                        Source="{Binding Cover}"
+                    ></Image>
+                                <Label
+                        Text="{Binding Title}"
+                    ></Label>
+                                <Label
+                        Text="{Binding Author}"
+                    ></Label>
+                                <Label
+                        Text="{Binding Isbn}"
+                    ></Label>
+                                <Label
+                        Text="{Binding Availability}"
+                    ></Label>
+                                <Button
+                        Text="Place Hold"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        BackgroundColor="DarkGreen"
+                    ></Button>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="listView" IsVisible="false">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -881,19 +916,18 @@
                                     <Label
                                         Text="{Binding Availability}"
                                     ></Label>
-                                <Button
+                                    <Button
                                         Text="Place Hold"
                                         FontSize="Medium"
                                         FontAttributes="Bold"
                                         BackgroundColor="DarkGreen"
                                     ></Button>
                                 </VerticalStackLayout>
-                                
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -31,9 +31,9 @@ namespace Library_Management_System.Models
             database.Delete<Book>(bookId);
         }
 
-        public List<Book> GetAllBooks()
+        public static List<Book> GetAllBooks()
         {
-            return database.Table<Book>().ToList();
+            return database.Query<Book>($@"SELECT * FROM Book");
         }
 
         public void UpdateBook(Book book)
