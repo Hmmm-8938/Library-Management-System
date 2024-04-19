@@ -16,6 +16,28 @@
             Routing.RegisterRoute("BooksOverdue", typeof(BooksOverdue));
             Routing.RegisterRoute("BooksAdd", typeof(BooksAdd));
             Routing.RegisterRoute("Login", typeof(Login));
+
+        }
+
+        public void ShowLoggedOut()
+        {
+            cLibCard.IsVisible = false;
+            checkInOut.IsVisible = false;
+            payFees.IsVisible = false;
+            libFunctions.IsVisible = false;
+            viewAccount.IsVisible = false;
+        }
+        public void ShowLibrarianFeatures()
+        {
+            cLibCard.IsVisible = true;
+            checkInOut.IsVisible = true;
+            payFees.IsVisible = true;
+            libFunctions.IsVisible = true;
+            viewAccount.IsVisible = true;
+        }
+        public void ShowPatronFeatures()
+        {
+            viewAccount.IsVisible = true;
         }
     }
 }

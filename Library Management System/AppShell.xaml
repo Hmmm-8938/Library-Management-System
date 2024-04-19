@@ -22,6 +22,7 @@
     </Shell.ItemTemplate>
 
     <ShellContent
+        x:Name="Catalogue"
         Title="Catalogue"
         ContentTemplate="{DataTemplate local:Catalogue}"
         Route="Catalogue" 
@@ -33,10 +34,10 @@
         ContentTemplate="{DataTemplate local:CreateLibraryCard}"
         Route="CreateLibraryCard"
         Icon="create_library_card_icon.png"
-        x:Name="CLibCard"
-        FlyoutItem.IsVisible="True"/>
+        x:Name="cLibCard"
+        FlyoutItem.IsVisible="False" />
 
-    <FlyoutItem Title="CheckInOutBooks" Icon="checkin_checkout_books_icon.png" FlyoutItem.IsVisible="True">
+    <FlyoutItem x:Name="checkInOut" Title="CheckInOutBooks" Icon="checkin_checkout_books_icon.png" IsVisible="False">
         <Tab Title="Check In Books">
             <ShellContent
                Title="CheckInBook"
@@ -55,8 +56,9 @@
         ContentTemplate="{DataTemplate local:PayFees}"
         Route="PayFees"
         Icon="pay_fees_icon.png"
-        x:Name="PayFees"/>
-    <FlyoutItem Title="LibrarianFunctions" Icon="librarian_functions_icon.png">
+        x:Name="payFees"
+        IsVisible="False"/>
+    <FlyoutItem x:Name="libFunctions" Title="LibrarianFunctions" Icon="librarian_functions_icon.png" IsVisible="False" >
         <Tab Title="Checked Out Books">
             <ShellContent
                 Title="CheckedOutBooks"
@@ -90,10 +92,12 @@
     </FlyoutItem>
 
     <ShellContent
+    x:Name="viewAccount"
     Title="ViewAccount"
     ContentTemplate="{DataTemplate local:ViewAccount}"
     Route="ViewAccount" 
     Icon="view_account_icon.png"
+    IsVisible="False"
     />
     
 </Shell>
