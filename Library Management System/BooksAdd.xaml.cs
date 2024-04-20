@@ -85,23 +85,19 @@ public partial class BooksAdd : ContentPage
 
             string descriptionInput = DescriptionEntry.Text;
 
-            if (TitleEntry.Text != null && AuthorEntry.Text != null && ISBNEntry.Text != null && DescriptionEntry != null)
-            {
-                string bookImage = "na_image.png";
-                string bookAvailability = "Available";
+            string bookImage = "na_image.png";
+            string bookAvailability = "Available";
 
-                Book newbook = new Book(titleInput, authorInput, descriptionInput, ISBNInput, bookImage, bookAvailability);
+            Book newbook = new Book(titleInput, authorInput, descriptionInput, ISBNInput, bookImage, bookAvailability);
 
-                Database_Manager.AddBook(newbook);
+            Database_Manager.AddBook(newbook);
 
-                TitleEntry.Text = null;
-                AuthorEntry.Text = null;
-                DescriptionEntry.Text = null;
-                ISBNEntry.Text = null;
+            TitleEntry.Text = null;
+            AuthorEntry.Text = null;
+            DescriptionEntry.Text = null;
+            ISBNEntry.Text = null;
 
-                bookNotify.Text = "Book Added to Library";
-
-            }
+            bookNotify.Text = "Book Added to Library";
         }
         
 		
