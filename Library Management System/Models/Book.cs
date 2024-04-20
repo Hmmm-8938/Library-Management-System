@@ -20,7 +20,7 @@ namespace Library_Management_System.Models
         [Required]
         public string Description { get; set; }
         [Required]
-        public int Isbn { get; set; }
+        public long Isbn { get; set; }
         [Required]
         public string Cover { get; set; }
         [Required]
@@ -31,7 +31,7 @@ namespace Library_Management_System.Models
 
         }
 
-        public Book(string title, string author, string description, int isbn, string cover, string availability)
+        public Book(string title, string author, string description, long isbn, string cover, string availability)
         {
             Title = title;
             Author = author;

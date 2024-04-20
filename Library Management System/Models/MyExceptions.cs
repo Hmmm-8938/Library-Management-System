@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,12 @@ namespace Library_Management_System.Models
 
             }
 
-            else if (message == "MISSING DATE OF BIRTH")
+            else if (message == "INCORRECT FIRST NAME FORMAT")
+            {
+
+            }
+
+            else if (message == "INCORRECT LAST NAME FORMAT")
             {
 
             }
@@ -31,12 +37,17 @@ namespace Library_Management_System.Models
 
             }
 
+            else if (message == "INCORRECT PHONE NUMBER FORMAT")
+            {
+
+            }
+
             else if (message == "MISSING E-MAIL ADDRESS")
             {
 
             }
 
-            else if (message == "INCORRECT DOB FORMAT")
+            else if (message == "INCORRECT E-MAIL ADDRESS")
             {
 
             }
@@ -52,6 +63,11 @@ namespace Library_Management_System.Models
             }
 
             else if (message == "MISSING BOOK ISBN")
+            {
+
+            }
+
+            else if (message == "INCORRECT ISBN FORMAT")
             {
 
             }
