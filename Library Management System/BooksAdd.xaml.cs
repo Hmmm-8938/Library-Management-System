@@ -1,4 +1,5 @@
 using Library_Management_System.Models;
+using System.Text.RegularExpressions;
 
 namespace Library_Management_System;
 
@@ -23,7 +24,7 @@ public partial class BooksAdd : ContentPage
             }
         }
 
-        if (AuthorEntry.Text == null)
+        else if (AuthorEntry.Text == null)
         {
             try
             {
@@ -36,7 +37,7 @@ public partial class BooksAdd : ContentPage
             }
         }
 
-        if (ISBNEntry.Text == null)
+        else if (ISBNEntry.Text == null)
         {
             try
             {
@@ -49,7 +50,20 @@ public partial class BooksAdd : ContentPage
             }
         }
 
-        if (DescriptionEntry.Text == null)
+        else if (!Regex.IsMatch(ISBNEntry.Text, @"^[0-9]"))
+        {
+            try
+            {
+                throw new MyExceptions("INCORRECT ISBN FORMAT");
+            }
+
+            catch (MyExceptions ex)
+            {
+                await DisplayAlert("Incorrect ISBN Format ", "The Book ISBN Must Only Contain Numbers", "OK");
+            }
+        }
+
+        else if (DescriptionEntry.Text == null)
         {
             try
             {
@@ -62,34 +76,19 @@ public partial class BooksAdd : ContentPage
             }
         }
 
-        string titleInput = TitleEntry.Text;
-        string authorInput = AuthorEntry.Text;
-        string ISBNInput = ISBNEntry.Text;
-
-        if (TitleEntry.Text != null)
+        else
         {
-            titleInput = TitleEntry.Text.ToUpper();
-        }
 
-        
-        if (AuthorEntry.Text != null)
-        {
-            authorInput = AuthorEntry.Text.ToUpper();
-        }
+            string titleInput = TitleEntry.Text.ToUpper();
+            string authorInput = AuthorEntry.Text.ToUpper();
+            long ISBNInput = Int64.Parse(ISBNEntry.Text);
 
-        if (ISBNEntry.Text != null)
-        {
-            Int32.Parse(ISBNInput);
-        }
+            string descriptionInput = DescriptionEntry.Text;
 
-        string descriptionInput = DescriptionEntry.Text;
-
-        if (TitleEntry.Text != null && AuthorEntry.Text != null && ISBNEntry.Text != null && DescriptionEntry != null)
-        {
             string bookImage = "na_image.png";
             string bookAvailability = "Available";
 
-            Book newbook = new Book(titleInput, authorInput, descriptionInput, Int32.Parse(ISBNInput), bookImage, bookAvailability);
+            Book newbook = new Book(titleInput, authorInput, descriptionInput, ISBNInput, bookImage, bookAvailability);
 
             Database_Manager.AddBook(newbook);
 
@@ -99,8 +98,8 @@ public partial class BooksAdd : ContentPage
             ISBNEntry.Text = null;
 
             bookNotify.Text = "Book Added to Library";
-
-        } 
+        }
+        
 		
     }
 }

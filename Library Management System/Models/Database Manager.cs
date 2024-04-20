@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+//using EventKit;
+using Microsoft.VisualBasic;
 using SQLite;
 
 namespace Library_Management_System.Models
@@ -46,21 +49,23 @@ namespace Library_Management_System.Models
             return database.Table<Book>().Where(b => b.BookId == bookId).FirstOrDefault();
         }
 
-        public static void AddUser(User user)
+        public static void AddUser(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dob, float balance)
         {
-            database.Insert(user);
+            //database.Insert(user);
+            User newUser = new User(userID, pin, phoneNumber, firstName, lastName, email, dob, balance);
+            database.Execute($@"INSERT INTO USER (UserID, PIN, PhoneNumber, FirstName, LastName, Email, DOB, Balance) VALUES ('{userID}', '{pin}', '{phoneNumber:###-###-####}', '{firstName}', '{lastName}', '{email}', '{dob:yyyy-MM-dd}', '{balance}');");
         }
 
         public void DeleteUser(int userId)
         {
             database.Delete<User>(userId);
         }
-
+        //
         public List<User> GetAllUsers()
         {
             return database.Table<User>().ToList();
         }
-        //
+        
         public static void UpdateUser(User user)
         {
             database.Update(user);
