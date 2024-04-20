@@ -158,6 +158,7 @@
                                     
                                 ></Label>
                                 <Button
+                                    x:Name="phMain"
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     Text="Place Hold"
@@ -218,11 +219,13 @@
                                     
                                 ></Label>
                                 <Button
+                                    x:Name="phSearch"
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     Text="Place Hold"
                                     FontSize="Medium"
                                     FontAttributes="Bold"
+                                    Clicked="PlaceHold_Clicked"
                                     BackgroundColor="DarkGreen"
                                 ></Button>
                             </Grid>
