@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Library_Management_System.Catalogue"
              Title="Catalogue">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
             <!--Top bar of application.-->
             <Grid>
                 <!--Defining the columns for the table grid at top of program-->
@@ -170,7 +171,7 @@
 
             <StackLayout Margin="20">
                 <CollectionView x:Name="searchPage" IsVisible="False"
-                        ItemsLayout="HorizontalGrid, 4">
+                        ItemsLayout="HorizontalGrid, 5">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10">
@@ -221,6 +222,6 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
-
         </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
