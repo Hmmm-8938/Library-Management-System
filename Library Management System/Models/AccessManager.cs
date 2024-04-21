@@ -28,9 +28,14 @@ namespace Library_Management_System.Models
                 User activeUser = Database_Manager.GetUserById(ID);
                 SetActiveUser(activeUser);
                 string UserID = ID.ToString();
+                var appShell = (App.Current as App).MainPage as AppShell;
                 if (UserID[0] == '9')
                 {
-                    
+                    appShell.ShowLibrarianFeatures();
+                }
+                else
+                {
+                    appShell.ShowPatronFeatures();
                 }
             }
             return valid;
@@ -38,7 +43,9 @@ namespace Library_Management_System.Models
 
         public static void Logout()
         {
+            var appShell = (App.Current as App).MainPage as AppShell;
             activeUser = null;
+            appShell.ShowLoggedOut();
         }
 
     }
