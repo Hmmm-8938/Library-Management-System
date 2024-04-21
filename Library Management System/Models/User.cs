@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
@@ -55,7 +56,6 @@ namespace Library_Management_System.Models
             DOB = dOB;
             Balance = balance;
         }
-
        
         public override string ToString()
         {

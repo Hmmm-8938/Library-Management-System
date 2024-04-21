@@ -5,6 +5,10 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+//using Contacts;
+
+using Microsoft.Maui.ApplicationModel.Communication;
+
 //using EventKit;
 using Microsoft.VisualBasic;
 using SQLite;
@@ -65,11 +69,20 @@ namespace Library_Management_System.Models
         {
             return database.Table<User>().ToList();
         }
-        
+
         public static void UpdateUser(User user)
         {
             database.Update(user);
         }
+
+        public static void UpdateUserInfo(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dob, float balance)
+        {
+            User newUser = new User(userID, pin, phoneNumber, firstName, lastName, email, dob, balance);
+            database.Execute($@"UPDATE USER SET PhoneNumber = '{phoneNumber}', FirstName = '{firstName}', LastName = '{lastName}', Email = '{email}', DOB = '{dob:yyyy-MM-dd}' WHERE UserID = {userID};");
+            //database.Update(user);
+        }
+
+        
 
         public static User GetUserById(int userId)
         {

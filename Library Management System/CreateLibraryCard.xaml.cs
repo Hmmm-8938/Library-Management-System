@@ -10,9 +10,16 @@ public partial class CreateLibraryCard : ContentPage
 	public CreateLibraryCard()
 	{
 		InitializeComponent();
-	}
+        
+    }
 
-    private async void Create_User(object sender, EventArgs e)
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        createNotify.Text = "";
+    }
+
+        private async void Create_User(object sender, EventArgs e)
     {   
         //Exception for missing and letter only in Names
         if (firstName.Text == null)
@@ -40,7 +47,7 @@ public partial class CreateLibraryCard : ContentPage
             }
         }
 
-        if (lastName.Text == null)
+        else if (lastName.Text == null)
         {
             try
             {
