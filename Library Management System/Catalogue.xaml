@@ -112,7 +112,10 @@
             </Grid>
 
             <StackLayout Margin="20">
-                <CollectionView x:Name="defaultPage"
+            <Label x:Name="noResults"
+                       Text=""
+                        IsVisible="false"/>
+            <CollectionView x:Name="defaultPage"
                         ItemsLayout="HorizontalGrid, 4">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -154,24 +157,12 @@
                                     Grid.Row="3"
                                     Text="{Binding BookId}"
                                 ></Label>
-                                <Label
+                            <Label
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     Text="{Binding Availability}"
                                 ></Label>
-                                <Button
-                                    x:Name="phMain"
-                                    Grid.Column="1"
-                                    Grid.Row="5"
-                                    Text="Place Hold"
-                                    FontSize="Small"
-                                    FontAttributes="Bold"
-                                    BackgroundColor="DarkGreen"
-                                    Clicked="PlaceHold_Clicked"
-                                    WidthRequest="300"
-                                    HeightRequest="5"
-                                ></Button>
-                            </Grid>
+                        </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -220,24 +211,12 @@
                                     Grid.Row="3"
                                     Text="{Binding BookId}"
                                 ></Label>
-                                <Label
+                            <Label
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     Text="{Binding Availability}"
                                 ></Label>
-                                <Button
-                                    x:Name="phSearch"
-                                    Grid.Column="1"
-                                    Grid.Row="5"
-                                    Text="Place Hold"
-                                    FontSize="Small"
-                                    FontAttributes="Bold"
-                                    BackgroundColor="DarkGreen"
-                                    Clicked="PlaceHold_Clicked"
-                                    WidthRequest="300"
-                                    HeightRequest="5"
-                                ></Button>
-                            </Grid>
+                        </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
