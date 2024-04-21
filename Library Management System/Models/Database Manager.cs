@@ -219,7 +219,8 @@ namespace Library_Management_System.Models
         }
         public static List<Book> GetBooksOverdue()
         {
-            return database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE ReturnDate IS NULL AND (julianday('now') - julianday('DueDate') > 0);");
+            DateTime today = DateTime.Now;
+            return database.Query<Book>($@"SELECT * FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE ReturnDate IS NULL AND ROUND((julianday('{today:yyyy-MM-dd HH:mm:ss}')) - (julianday(DueDate))) > 0;");
         }
     }
 }
