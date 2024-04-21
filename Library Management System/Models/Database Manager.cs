@@ -183,7 +183,8 @@ namespace Library_Management_System.Models
         }
         public static List<Book> GetUserOverdueBooks(int userID)
         {
-            List<Book> overdueBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE UserID = '{userID}' AND ReturnDate IS NULL AND (julianday('now') - julianday('DueDate') > 0);");
+            DateTime today = DateTime.Now;
+            List<Book> overdueBooks = database.Query<Book>($@"SELECT * FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE UserID = '{userID}' AND ReturnDate IS NULL AND ROUND((julianday('{today:yyyy-MM-dd HH:mm:ss}')) - (julianday(DueDate))) > 0;");
             return overdueBooks;
         }
         public static bool ValidateUser(int userID, string pin)
