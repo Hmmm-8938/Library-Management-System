@@ -29,11 +29,12 @@ public partial class ViewAccount : ContentPage
             lastNameChange.Text = accountLastName;
             phoneNumberChange.Text = accountPhoneNumber;
             emailChange.Text = accountEmail;
-            dobChange.Date = accountDate;
             
 
             accountName.Text = $"Account: {accountFirstName} {accountLastName}";
             accountCard.Text = $"Library Card #: {accountCardNum}";
+            List<Book> UserCOBookList = Database_Manager.GetUserCheckedOutBooks(accountCardNum);
+            UserCheckedOutList.ItemsSource = UserCOBookList;
         }
         else
         {
@@ -169,9 +170,8 @@ public partial class ViewAccount : ContentPage
                 else
                 {
                     string phoneNumberInput = phoneNumberChange.Text;
-                    DateTime dobInput = dobChange.Date;
 
-                    Database_Manager.UpdateUserInfo(accountCardNum, accountPIN, phoneNumberInput, firstNameInput, lastNameInput, emailInput, dobInput, accountBalance);
+                    Database_Manager.UpdateUserInfo(accountCardNum, accountPIN, phoneNumberInput, firstNameInput, lastNameInput, emailInput, accountDate, accountBalance);
 
                     updateNotify.Text = "Information has been updated";
 

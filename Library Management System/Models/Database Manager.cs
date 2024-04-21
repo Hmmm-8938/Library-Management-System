@@ -71,7 +71,7 @@ namespace Library_Management_System.Models
         public static void UpdateUserInfo(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dob, float balance)
         {
             User newUser = new User(userID, pin, phoneNumber, firstName, lastName, email, dob, balance);
-            database.Execute($@"UPDATE USER SET PhoneNumber = '{phoneNumber}', FirstName = '{firstName}', LastName = '{lastName}', Email = '{email}', DOB = '{dob:yyyy-MM-dd}' WHERE UserID = {userID};");
+            database.Execute($@"UPDATE USER SET PhoneNumber = '{phoneNumber}', FirstName = '{firstName}', LastName = '{lastName}', Email = '{email}' WHERE UserID = {userID};");
             //database.Update(user);
         }
 
