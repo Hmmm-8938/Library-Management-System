@@ -48,7 +48,7 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
                     Margin="400,10,0,0"/>
-                <Entry WidthRequest="300" Margin="40,0,0,0"/>
+                <Entry x:Name="firstNameChange" WidthRequest="300" Margin="40,0,0,0"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Margin="0,10,0,10">
@@ -58,7 +58,7 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
                     Margin="400,10,0,0"/>
-                <Entry WidthRequest="300" Margin="40,0,0,0"/>
+                <Entry x:Name="lastNameChange" WidthRequest="300" Margin="40,0,0,0"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Margin="0,10,0,10">
@@ -68,7 +68,7 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
                     Margin="400,10,0,0"/>
-                <Entry WidthRequest="300" Margin="10,0,0,0"/>
+                <Entry x:Name="emailChange" WidthRequest="300" Margin="10,0,0,0"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Margin="0,10,0,10">
@@ -78,7 +78,11 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
                     Margin="400,10,0,0"/>
-                <Entry WidthRequest="300" Margin="25,0,0,0"/>
+                <DatePicker x:Name="dobChange"
+                            WidthRequest="300"
+                            MinimumDate="01/01/1900"
+                            MaximumDate="12/31/2023"
+                            Margin="25,0,0,0"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Margin="0,10,0,10">
@@ -88,10 +92,17 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
                     Margin="400,10,0,0"/>
-                <Entry WidthRequest="300" Margin="8,0,0,0"/>
+                <Entry x:Name="phoneNumberChange" WidthRequest="300" Margin="8,0,0,0"/>
             </HorizontalStackLayout>
 
-            <Button Text="Edit Information" WidthRequest="200" Margin="530,20,0,0"/>
+            <Button Clicked="Update_User" Text="Edit Information" WidthRequest="200" Margin="530,20,0,0"/>
+            <Label
+                Text=""
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Margin="550,20,10,0"
+                x:Name="updateNotify"/>
+
         </VerticalStackLayout>
     </HorizontalStackLayout>
     
