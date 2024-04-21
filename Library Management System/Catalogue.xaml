@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Library_Management_System.Catalogue"
              Title="Catalogue">
-    <ScrollView Orientation="Vertical">
-        <VerticalStackLayout>
+    <VerticalStackLayout>
             <!--Top bar of application.-->
             <Grid>
                 <!--Defining the columns for the table grid at top of program-->
@@ -119,7 +118,8 @@
                         <DataTemplate>
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="100" />
+                                    <RowDefinition Height="75" />
+                                    <RowDefinition Height="20" />
                                     <RowDefinition Height="20" />
                                     <RowDefinition Height="20" />
                                     <RowDefinition Height="20" />
@@ -129,7 +129,7 @@
                                     <ColumnDefinition Width="200" />
                                     <ColumnDefinition Width="300" />
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.RowSpan="5" 
+                                <Image Grid.RowSpan="6" 
                                Source="{Binding Cover}"
                                HeightRequest="210" 
                                WidthRequest="150" />
@@ -155,17 +155,21 @@
                                     Text="{Binding BookId}"
                                 ></Label>
                                 <Label
-                                    
+                                    Grid.Column="1"
+                                    Grid.Row="4"
+                                    Text="{Binding Availability}"
                                 ></Label>
                                 <Button
                                     x:Name="phMain"
                                     Grid.Column="1"
-                                    Grid.Row="4"
+                                    Grid.Row="5"
                                     Text="Place Hold"
-                                    FontSize="Medium"
+                                    FontSize="Small"
                                     FontAttributes="Bold"
                                     BackgroundColor="DarkGreen"
                                     Clicked="PlaceHold_Clicked"
+                                    WidthRequest="300"
+                                    HeightRequest="5"
                                 ></Button>
                             </Grid>
                         </DataTemplate>
@@ -180,7 +184,8 @@
                         <DataTemplate>
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="100" />
+                                    <RowDefinition Height="75" />
+                                    <RowDefinition Height="20" />
                                     <RowDefinition Height="20" />
                                     <RowDefinition Height="20" />
                                     <RowDefinition Height="20" />
@@ -190,7 +195,7 @@
                                     <ColumnDefinition Width="200" />
                                     <ColumnDefinition Width="300" />
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.RowSpan="5" 
+                                <Image Grid.RowSpan="6" 
                                Source="{Binding Cover}"
                                HeightRequest="210" 
                                WidthRequest="150" />
@@ -216,17 +221,21 @@
                                     Text="{Binding BookId}"
                                 ></Label>
                                 <Label
-                                    
+                                    Grid.Column="1"
+                                    Grid.Row="4"
+                                    Text="{Binding Availability}"
                                 ></Label>
                                 <Button
                                     x:Name="phSearch"
                                     Grid.Column="1"
-                                    Grid.Row="4"
+                                    Grid.Row="5"
                                     Text="Place Hold"
-                                    FontSize="Medium"
+                                    FontSize="Small"
                                     FontAttributes="Bold"
-                                    Clicked="PlaceHold_Clicked"
                                     BackgroundColor="DarkGreen"
+                                    Clicked="PlaceHold_Clicked"
+                                    WidthRequest="300"
+                                    HeightRequest="5"
                                 ></Button>
                             </Grid>
                         </DataTemplate>
@@ -235,5 +244,4 @@
             </StackLayout>
 
         </VerticalStackLayout>
-    </ScrollView>
 </ContentPage>
