@@ -29,7 +29,7 @@
                     HorizontalOptions="Start"
                     Margin="0,10,0,0"/>
                 <ScrollView Orientation="Vertical">
-                    <ListView x:Name="UserCheckedOutList" BackgroundColor="Gray" MaximumHeightRequest="250">
+                    <ListView x:Name="UserCheckedOutList" MaximumHeightRequest="250">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -56,7 +56,7 @@
                     HorizontalOptions="Start"
                     Margin="0,10,0,0"/>
                 <ScrollView Orientation="Vertical">
-                    <ListView x:Name="UserOverdueList" BackgroundColor="Gray" MaximumHeightRequest="250">
+                    <ListView x:Name="UserOverdueList" MaximumHeightRequest="250">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -74,8 +74,6 @@
                     </ListView>
                 </ScrollView>
             </VerticalStackLayout>
-            
-            
         </VerticalStackLayout>
         
         
