@@ -50,7 +50,6 @@ namespace Library_Management_System.Models
 
         public static void AddUser(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dob, float balance)
         {
-            //database.Insert(user);
             User newUser = new User(userID, pin, phoneNumber, firstName, lastName, email, dob, balance);
             database.Execute($@"INSERT INTO USER (UserID, PIN, PhoneNumber, FirstName, LastName, Email, DOB, Balance) VALUES ('{userID}', '{pin}', '{phoneNumber:###-###-####}', '{firstName}', '{lastName}', '{email}', '{dob:yyyy-MM-dd}', '{balance}');");
         }
@@ -59,7 +58,6 @@ namespace Library_Management_System.Models
         {
             database.Delete<User>(userId);
         }
-        //
         public List<User> GetAllUsers()
         {
             return database.Table<User>().ToList();
@@ -73,7 +71,7 @@ namespace Library_Management_System.Models
         public static void UpdateUserInfo(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dob, float balance)
         {
             User newUser = new User(userID, pin, phoneNumber, firstName, lastName, email, dob, balance);
-            database.Execute($@"UPDATE USER SET PhoneNumber = '{phoneNumber}', FirstName = '{firstName}', LastName = '{lastName}', Email = '{email}', DOB = '{dob:yyyy-MM-dd}' WHERE UserID = {userID};");
+            database.Execute($@"UPDATE USER SET PhoneNumber = '{phoneNumber}', FirstName = '{firstName}', LastName = '{lastName}', Email = '{email}' WHERE UserID = {userID};");
             //database.Update(user);
         }
 
@@ -88,11 +86,15 @@ namespace Library_Management_System.Models
         {
             return database.Query<Book>($@"SELECT * FROM Book WHERE title LIKE '%' || '{title}' || '%'");
         }
+        public static List<Book> GetBookByAuthor(string author)
+        {
+            return database.Query<Book>($@"SELECT * FROM Book WHERE author LIKE '%' || '{author}' || '%'");
+        }
         public static bool RowExists(int bookID)
         {
             bool rowExists = false;
             int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM UserBook WHERE BookID = {bookID} AND ReturnDate IS NULL;");
-            if(count > 0)
+            if (count > 0)
             {
                 rowExists = true;
             }
@@ -103,7 +105,7 @@ namespace Library_Management_System.Models
         {
             bool userExists = false;
             int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM User WHERE UserID = {userID};");
-            if (count > 0) 
+            if (count > 0)
             {
                 userExists = true;
             }
@@ -122,7 +124,7 @@ namespace Library_Management_System.Models
         }
         public static bool CheckInBook(int bookID)
         {
-            if(RowExists(bookID) == true)
+            if (RowExists(bookID) == true)
             {
                 DateTime returnDate = DateTime.Now;
                 database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND((julianday('{returnDate:yyyy-MM-dd HH:mm:ss}')) - (julianday(DueDate))) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
@@ -169,7 +171,6 @@ namespace Library_Management_System.Models
                     DateTime dueDate = today.AddDays(daysToBorrow);
                     UserBook userBook = new UserBook(userID, bookID, today, dueDate);
                     database.Execute($@"INSERT INTO USERBOOK (UserID, BookID, CheckOutDate, DueDate) VALUES ('{userID}', '{bookID}', '{today:yyyy-MM-dd HH:mm:ss}', '{dueDate:yyyy-MM-dd HH:mm:ss}');");
-                    //database.Insert(userBook);
                     database.Execute($@"UPDATE Book SET Availability = 'Unavailable' WHERE BookID = '{bookID}';");
                     return true;
                 }
@@ -182,7 +183,6 @@ namespace Library_Management_System.Models
         public static List<Book> GetCheckedOutBooks()
         {
             List<Book> checkedOutBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using (BookID) WHERE ReturnDate IS NULL;");
-            //did we need to return user info too?
             return checkedOutBooks;
         }
         public static List<Book> GetUserCheckedOutBooks(int userID)
@@ -192,7 +192,8 @@ namespace Library_Management_System.Models
         }
         public static List<Book> GetUserOverdueBooks(int userID)
         {
-            List<Book> overdueBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE UserID = '{userID}' AND ReturnDate IS NULL AND (julianday('now') - julianday('DueDate') > 0);");
+            DateTime today = DateTime.Now;
+            List<Book> overdueBooks = database.Query<Book>($@"SELECT * FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE UserID = '{userID}' AND ReturnDate IS NULL AND ROUND((julianday('{today:yyyy-MM-dd HH:mm:ss}')) - (julianday(DueDate))) > 0;");
             return overdueBooks;
         }
         public static bool ValidateUser(int userID, string pin)
@@ -221,6 +222,10 @@ namespace Library_Management_System.Models
         {
             DateTime today = DateTime.Now;
             return database.Query<Book>($@"SELECT * FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE ReturnDate IS NULL AND ROUND((julianday('{today:yyyy-MM-dd HH:mm:ss}')) - (julianday(DueDate))) > 0;");
+        }
+        public static List<User> GetUsers()
+        {
+            return database.Table<User>().ToList();
         }
     }
 }

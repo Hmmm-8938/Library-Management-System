@@ -12,5 +12,11 @@ public partial class BooksAvailable : ContentPage
         List<Book> bookList = Database_Manager.GetBooksAvailable();
         AvailableList.ItemsSource = bookList;
     }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        List<Book> bookList = Database_Manager.GetBooksAvailable();
+        AvailableList.ItemsSource = bookList;
+    }
 
 }

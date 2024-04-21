@@ -15,31 +15,27 @@ public partial class ViewAccount : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        if (AccessManager.ActiveUser != null)
-        {
-            int accountCardNum = AccessManager.ActiveUser.UserID;
-            string accountPIN = AccessManager.ActiveUser.PIN;
-            string accountPhoneNumber = AccessManager.ActiveUser.PhoneNumber;
-            string accountFirstName = AccessManager.ActiveUser.FirstName;
-            string accountLastName = AccessManager.ActiveUser.LastName;
-            string accountEmail = AccessManager.ActiveUser.Email;
-            DateTime accountDate = AccessManager.ActiveUser.DOB;
-            
-            firstNameChange.Text = accountFirstName;
-            lastNameChange.Text = accountLastName;
-            phoneNumberChange.Text = accountPhoneNumber;
-            emailChange.Text = accountEmail;
-            dobChange.Date = accountDate;
-            
 
-            accountName.Text = $"Account: {accountFirstName} {accountLastName}";
-            accountCard.Text = $"Library Card #: {accountCardNum}";
-        }
-        else
-        {
-            accountName.Text = $"Account: ";
-            accountCard.Text = $"Library Card #: ";
-        }
+        int accountCardNum = AccessManager.ActiveUser.UserID;
+        string accountPIN = AccessManager.ActiveUser.PIN;
+        string accountPhoneNumber = AccessManager.ActiveUser.PhoneNumber;
+        string accountFirstName = AccessManager.ActiveUser.FirstName;
+        string accountLastName = AccessManager.ActiveUser.LastName;
+        string accountEmail = AccessManager.ActiveUser.Email;
+        DateTime accountDate = AccessManager.ActiveUser.DOB;
+
+        firstNameChange.Text = accountFirstName;
+        lastNameChange.Text = accountLastName;
+        phoneNumberChange.Text = accountPhoneNumber;
+        emailChange.Text = accountEmail;
+
+
+        accountName.Text = $"Account: {accountFirstName} {accountLastName}";
+        accountCard.Text = $"Library Card #: {accountCardNum}";
+        List<Book> UserCOBookList = Database_Manager.GetUserCheckedOutBooks(accountCardNum);
+        UserCheckedOutList.ItemsSource = UserCOBookList;
+        List<Book> UserODBookList = Database_Manager.GetUserCheckedOutBooks(accountCardNum);
+        UserOverdueList.ItemsSource = UserODBookList;
 
         updateNotify.Text = "";
 
@@ -169,9 +165,8 @@ public partial class ViewAccount : ContentPage
                 else
                 {
                     string phoneNumberInput = phoneNumberChange.Text;
-                    DateTime dobInput = dobChange.Date;
 
-                    Database_Manager.UpdateUserInfo(accountCardNum, accountPIN, phoneNumberInput, firstNameInput, lastNameInput, emailInput, dobInput, accountBalance);
+                    Database_Manager.UpdateUserInfo(accountCardNum, accountPIN, phoneNumberInput, firstNameInput, lastNameInput, emailInput, accountDate, accountBalance);
 
                     updateNotify.Text = "Information has been updated";
 

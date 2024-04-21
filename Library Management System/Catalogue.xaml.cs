@@ -33,9 +33,24 @@ public partial class Catalogue : ContentPage
     {
         string searchText = searchEntry.Text;
         List<Book> books = Database_Manager.GetBookByTitle(searchText);
+        if (books.Count == 0)
+        {
+            books = Database_Manager.GetBookByAuthor(searchText);
+        }
         defaultPage.IsVisible = false;
         searchPage.IsVisible = true;
         back.IsVisible = true;
+        if (books.Count == 0)
+        {
+            noResults.IsVisible = true;
+            noResults.Text = $"No results found for: {searchText}";
+        }
+        else
+        {
+            {
+                noResults.IsVisible = false;
+            }
+        }
         searchPage.ItemsSource = books;
 
     }
@@ -59,10 +74,5 @@ public partial class Catalogue : ContentPage
         searchEntry.Text = "";
     }
 
-    private void PlaceHold_Clicked(object sender, EventArgs e)
-    {
-        // phMain
-        // phSearch
-        // Need this to change the Availability of the book to On Hold and then refresh the catalogue page
-    }
+    
 }

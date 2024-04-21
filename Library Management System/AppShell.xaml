@@ -71,12 +71,6 @@
                 ContentTemplate="{DataTemplate local:BooksAvailable}"
                 Route="BooksAvailable"/>
         </Tab>
-        <Tab Title="Books On Hold">
-            <ShellContent
-                Title="OnHoldBooks"
-                ContentTemplate="{DataTemplate local:BooksOnHold}"
-                Route="BooksOnHold" />
-        </Tab>
         <Tab Title="Overdue Books">
             <ShellContent
                 Title="OverdueBooks"
@@ -88,6 +82,12 @@
                 Title="AddBooks"
                 ContentTemplate="{DataTemplate local:BooksAdd}"
                 Route="BooksAdd" />
+        </Tab>
+        <Tab Title="View Users">
+            <ShellContent
+        Title="ViewUsers"
+        ContentTemplate="{DataTemplate local:UserView}"
+        Route="UserView" />
         </Tab>
     </FlyoutItem>
 
