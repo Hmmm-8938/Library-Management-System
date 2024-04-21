@@ -110,6 +110,9 @@
 	  <MauiXaml Update="PayFees.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="UserView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ViewAccount.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

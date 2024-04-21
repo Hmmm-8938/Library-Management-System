@@ -89,6 +89,12 @@
                 ContentTemplate="{DataTemplate local:BooksAdd}"
                 Route="BooksAdd" />
         </Tab>
+        <Tab Title="View Users">
+            <ShellContent
+        Title="ViewUsers"
+        ContentTemplate="{DataTemplate local:UserView}"
+        Route="UserView" />
+        </Tab>
     </FlyoutItem>
 
     <ShellContent

@@ -64,7 +64,7 @@ namespace Library_Management_System.Models
         {
             return database.Table<User>().ToList();
         }
-        
+
         public static void UpdateUser(User user)
         {
             database.Update(user);
@@ -83,7 +83,7 @@ namespace Library_Management_System.Models
         {
             bool rowExists = false;
             int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM UserBook WHERE BookID = {bookID} AND ReturnDate IS NULL;");
-            if(count > 0)
+            if (count > 0)
             {
                 rowExists = true;
             }
@@ -94,7 +94,7 @@ namespace Library_Management_System.Models
         {
             bool userExists = false;
             int count = database.ExecuteScalar<int>($"SELECT COUNT(*) FROM User WHERE UserID = {userID};");
-            if (count > 0) 
+            if (count > 0)
             {
                 userExists = true;
             }
@@ -113,7 +113,7 @@ namespace Library_Management_System.Models
         }
         public static bool CheckInBook(int bookID)
         {
-            if(RowExists(bookID) == true)
+            if (RowExists(bookID) == true)
             {
                 DateTime returnDate = DateTime.Now;
                 database.Execute($@"UPDATE UserBook SET ReturnDate = '{returnDate:yyyy-MM-dd HH:mm:ss}', DaysOverdue = ROUND((julianday('{returnDate:yyyy-MM-dd HH:mm:ss}')) - (julianday(DueDate))) WHERE BookID = {bookID} AND ReturnDate IS NULL;");
@@ -211,6 +211,10 @@ namespace Library_Management_System.Models
         public static List<Book> GetBooksOverdue()
         {
             return database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE ReturnDate IS NULL AND (julianday('now') - julianday('DueDate') > 0);");
+        }
+        public static List<User> GetUsers()
+        {
+            return database.Table<User>().ToList();
         }
     }
 }
