@@ -50,7 +50,6 @@ namespace Library_Management_System.Models
 
         public static void AddUser(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dob, float balance)
         {
-            //database.Insert(user);
             User newUser = new User(userID, pin, phoneNumber, firstName, lastName, email, dob, balance);
             database.Execute($@"INSERT INTO USER (UserID, PIN, PhoneNumber, FirstName, LastName, Email, DOB, Balance) VALUES ('{userID}', '{pin}', '{phoneNumber:###-###-####}', '{firstName}', '{lastName}', '{email}', '{dob:yyyy-MM-dd}', '{balance}');");
         }
@@ -59,7 +58,6 @@ namespace Library_Management_System.Models
         {
             database.Delete<User>(userId);
         }
-        //
         public List<User> GetAllUsers()
         {
             return database.Table<User>().ToList();
@@ -78,6 +76,10 @@ namespace Library_Management_System.Models
         public static List<Book> GetBookByTitle(string title)
         {
             return database.Query<Book>($@"SELECT * FROM Book WHERE title LIKE '%' || '{title}' || '%'");
+        }
+        public static List<Book> GetBookByAuthor(string author)
+        {
+            return database.Query<Book>($@"SELECT * FROM Book WHERE author LIKE '%' || '{author}' || '%'");
         }
         public static bool RowExists(int bookID)
         {
@@ -160,7 +162,6 @@ namespace Library_Management_System.Models
                     DateTime dueDate = today.AddDays(daysToBorrow);
                     UserBook userBook = new UserBook(userID, bookID, today, dueDate);
                     database.Execute($@"INSERT INTO USERBOOK (UserID, BookID, CheckOutDate, DueDate) VALUES ('{userID}', '{bookID}', '{today:yyyy-MM-dd HH:mm:ss}', '{dueDate:yyyy-MM-dd HH:mm:ss}');");
-                    //database.Insert(userBook);
                     database.Execute($@"UPDATE Book SET Availability = 'Unavailable' WHERE BookID = '{bookID}';");
                     return true;
                 }
@@ -173,7 +174,6 @@ namespace Library_Management_System.Models
         public static List<Book> GetCheckedOutBooks()
         {
             List<Book> checkedOutBooks = database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using (BookID) WHERE ReturnDate IS NULL;");
-            //did we need to return user info too?
             return checkedOutBooks;
         }
         public static List<Book> GetUserCheckedOutBooks(int userID)

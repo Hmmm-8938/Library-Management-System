@@ -71,12 +71,6 @@
                 ContentTemplate="{DataTemplate local:BooksAvailable}"
                 Route="BooksAvailable"/>
         </Tab>
-        <Tab Title="Books On Hold">
-            <ShellContent
-                Title="OnHoldBooks"
-                ContentTemplate="{DataTemplate local:BooksOnHold}"
-                Route="BooksOnHold" />
-        </Tab>
         <Tab Title="Overdue Books">
             <ShellContent
                 Title="OverdueBooks"

@@ -32,18 +32,6 @@ namespace Library_Management_System.Models
         {
         
         }
-      
-        //public User(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dOB)
-        //{
-        //    UserID = userID;
-        //    PIN = pin;
-        //    PhoneNumber = phoneNumber;
-        //    FirstName = firstName;
-        //    LastName = lastName;
-        //    Email = email;
-        //    DOB = dOB;
-        //    Balance = 0;
-        //}
         public User(int userID, string pin, string phoneNumber, string firstName, string lastName, string email, DateTime dOB, float balance)
         {
             UserID = userID;
