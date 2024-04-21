@@ -26,7 +26,7 @@ public partial class Catalogue : ContentPage
             loginbtn.Text = "Login";
         }
         defaultPage.IsVisible = true;
-        listView.IsVisible = false;
+        searchPage.IsVisible = false;
         searchEntry.Text = "";
     }
     private void Search_Clicked(object sender, EventArgs e)
@@ -34,9 +34,9 @@ public partial class Catalogue : ContentPage
         string searchText = searchEntry.Text;
         List<Book> books = Database_Manager.GetBookByTitle(searchText);
         defaultPage.IsVisible = false;
-        listView.IsVisible = true;
+        searchPage.IsVisible = true;
         back.IsVisible = true;
-        listView.ItemsSource = books;
+        searchPage.ItemsSource = books;
 
     }
 
@@ -54,8 +54,15 @@ public partial class Catalogue : ContentPage
     private void back_Clicked(object sender, EventArgs e)
     {
         defaultPage.IsVisible = true;
-        listView.IsVisible = false;
+        searchPage.IsVisible = false;
         back.IsVisible = false;
         searchEntry.Text = "";
+    }
+
+    private void PlaceHold_Clicked(object sender, EventArgs e)
+    {
+        // phMain
+        // phSearch
+        // Need this to change the Availability of the book to On Hold and then refresh the catalogue page
     }
 }

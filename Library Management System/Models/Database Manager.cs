@@ -5,11 +5,6 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
-//using Contacts;
-
-using Microsoft.Maui.ApplicationModel.Communication;
-
-//using EventKit;
 using Microsoft.VisualBasic;
 using SQLite;
 
@@ -209,6 +204,22 @@ namespace Library_Management_System.Models
                 userValid = true;
             }
             return userValid;
+        }
+        public static List<Book> GetBooksAvailable()
+        {
+            return database.Query<Book>($@"SELECT * FROM Book WHERE Availability='Available';");
+        }
+        public static List<Book> GetBooksCheckedOut()
+        {
+            return database.Query<Book>($@"SELECT * FROM Book WHERE Availability='Unavailable';");
+        }
+        public static List<Book> GetBooksOnHold()
+        {
+            return database.Query<Book>($@"SELECT * FROM Book WHERE Availability='OnHold';");
+        }
+        public static List<Book> GetBooksOverdue()
+        {
+            return database.Query<Book>($@"SELECT Book.* FROM UserBook JOIN Book Using(BookID) JOIN User Using(UserID) WHERE ReturnDate IS NULL AND (julianday('now') - julianday('DueDate') > 0);");
         }
     }
 }
