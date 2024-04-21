@@ -86,9 +86,6 @@
 	  <MauiXaml Update="BooksCheckedOut.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="BooksOnHold.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="BooksOverdue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
