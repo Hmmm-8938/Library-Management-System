@@ -3,65 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Library_Management_System.BooksOnHold"
              Title="BooksOnHold">
-    <ScrollView Orientation="Vertical">
-        <VerticalStackLayout BackgroundColor="Gray">
-            <Label FontSize="20" Margin="10" TextColor="White">Books On Hold:</Label>
-            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-                <Image x:Name="Book1Image" WidthRequest="100" HeightRequest="200"></Image>
-                <VerticalStackLayout>
-                    <Label x:Name="Book1Title" TextColor="Black"></Label>
-                    <Label x:Name="Book1Author" TextColor="Black"></Label>
-                    <Label x:Name="Book1ISBN" TextColor="Black"></Label>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-                <Image x:Name="Book2Image" WidthRequest="100" HeightRequest="200"></Image>
-                <VerticalStackLayout>
-                    <Label x:Name="Book2Title" TextColor="Black"></Label>
-                    <Label x:Name="Book2Author" TextColor="Black"></Label>
-                    <Label x:Name="Book2ISBN" TextColor="Black"></Label>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-                <Image x:Name="Book3Image" WidthRequest="100" HeightRequest="200"></Image>
-                <VerticalStackLayout>
-                    <Label x:Name="Book3Title" TextColor="Black"></Label>
-                    <Label x:Name="Book3Author" TextColor="Black"></Label>
-                    <Label x:Name="Book3ISBN" TextColor="Black"></Label>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-                <Image x:Name="Book4Image" WidthRequest="100" HeightRequest="200"></Image>
-                <VerticalStackLayout>
-                    <Label x:Name="Book4Title" TextColor="Black"></Label>
-                    <Label x:Name="Book4Author" TextColor="Black"></Label>
-                    <Label x:Name="Book4ISBN" TextColor="Black"></Label>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-                <Image x:Name="Book5Image" WidthRequest="100" HeightRequest="200"></Image>
-                <VerticalStackLayout>
-                    <Label x:Name="Book5Title" TextColor="Black"></Label>
-                    <Label x:Name="Book5Author" TextColor="Black"></Label>
-                    <Label x:Name="Book5ISBN" TextColor="Black"></Label>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-                <Image x:Name="Book6Image" WidthRequest="100" HeightRequest="200"></Image>
-                <VerticalStackLayout>
-                    <Label x:Name="Book6Title" TextColor="Black"></Label>
-                    <Label x:Name="Book6Author" TextColor="Black"></Label>
-                    <Label x:Name="Book6ISBN" TextColor="Black"></Label>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Margin="5" BackgroundColor="LightGray" Padding="5">
-                <Image x:Name="Book7Image" WidthRequest="100" HeightRequest="200"></Image>
-                <VerticalStackLayout>
-                    <Label x:Name="Book7Title" TextColor="Black"></Label>
-                    <Label x:Name="Book7Author" TextColor="Black"></Label>
-                    <Label x:Name="Book7ISBN" TextColor="Black"></Label>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-    </ScrollView>
+    <ListView x:Name="OnHoldList" BackgroundColor="Gray" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <VerticalStackLayout Padding="10">
+                        <HorizontalStackLayout>
+                            <Image WidthRequest="50" HeightRequest="100" Source="{Binding Cover}"></Image>
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding Title}"></Label>
+                        <Label Text="{Binding Author}"></Label>
+                        <Label Text="{Binding Isbn}"></Label>
+                    </VerticalStackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
