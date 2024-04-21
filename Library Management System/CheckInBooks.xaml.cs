@@ -20,6 +20,7 @@ public partial class CheckInBooks : ContentPage
             bool successful = Database_Manager.CheckInBook(bookID);
 			if (successful)
 			{
+				CheckInEntry.Text = "";
 				await DisplayAlert("Successful Check-In", "Book was successfully checked in!", "OK");
 			}
 			else
