@@ -12,7 +12,6 @@
             Routing.RegisterRoute("PayFees", typeof(PayFees));
             Routing.RegisterRoute("BooksCheckedOut", typeof(BooksCheckedOut));
             Routing.RegisterRoute("BooksAvailable", typeof(BooksAvailable));
-            Routing.RegisterRoute("BooksOnHold", typeof(BooksOnHold));
             Routing.RegisterRoute("BooksOverdue", typeof(BooksOverdue));
             Routing.RegisterRoute("BooksAdd", typeof(BooksAdd));
             Routing.RegisterRoute("Login", typeof(Login));
